@@ -1,0 +1,69 @@
+<html>
+<head>
+</head>
+<body style="background-color: yellow;">
+  <p style="font-size: 300px; color: red;">知るか</p>
+
+
+</div>
+
+
+
+
+<script>
+
+function magic_multiply(x, y){
+  if(x == 0 && y == 0){
+    return 'all inputs 0';
+  }
+
+  if(typeof y == 'string'){
+    return('error - y cannot be a string')
+  }
+
+  if (Array.isArray(x)){
+    console.log('yes')
+    let z = [];
+    for(i=0;i<x.length;i++){
+      z.push(x[i]*y);
+    }
+    return z;
+  }
+
+  if (Number.isInteger(x)){
+    x = x * y;
+    return x;
+  }
+
+  if(typeof x == 'string'){
+    z = " "
+    while(y>0){
+      z += x;
+      y--;
+    }
+    return z;
+  }
+}
+
+let test1 = magic_multiply(5, 2);
+console.log(test1);
+
+let test2 = magic_multiply(0, 0);
+console.log(test2);
+
+let test3 = magic_multiply([1, 2, 3], 2);
+console.log(test3);
+
+let test4 = magic_multiply(7, "three");
+console.log(test4);
+
+let test5 = magic_multiply("Brendo", 4);
+console.log(test5);
+</script>
+
+
+
+
+
+</body>
+</html>

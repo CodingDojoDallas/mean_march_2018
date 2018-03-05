@@ -1,0 +1,52 @@
+<html>
+<head>
+</head>
+<body style="background-color: yellow;">
+  <p style="font-size: 300px; color: red;">知るか</p>
+<script>
+let students = [
+    {name: 'Remy', cohort: 'Jan'},
+    {name: 'Genevieve', cohort: 'March'},
+    {name: 'Chuck', cohort: 'Jan'},
+    {name: 'Osmund', cohort: 'June'},
+    {name: 'Nikki', cohort: 'June'},
+    {name: 'Boris', cohort: 'June'}
+];
+
+for(let element in students){
+  name = students[element].name
+  cohort = students[element].cohort
+  console.log(`Name: ${name}, Cohort: ${cohort}`)
+}
+
+let users = {
+    employees: [
+        {'first_name':  'Miguel', 'last_name' : 'Jones'},
+        {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+        {'first_name' : 'Nora', 'last_name' : 'Lu'},
+        {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+    ],
+    managers: [
+       {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+       {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+    ]
+ };
+
+for(let key in users){
+  console.log(key.toUpperCase());
+  let count = 0;
+  values = (users[key]);
+  for(let element in values){
+    count ++;
+    let first = values[element].first_name.toUpperCase();
+    let last = values[element].last_name.toUpperCase();
+    let length = (first + last).length
+    string = `${count} - ${last}, ${first} - ${length}`;
+    console.log(string);
+  }
+}
+
+
+</script>
+</body>
+</html>
