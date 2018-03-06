@@ -1,0 +1,42 @@
+<html>
+<head>
+</head>
+<body style="background-color: yellow;">
+  <p style="font-size: 300px; color: red;">知るか</p>
+<script>
+function starString(num){
+  let stars = ""
+  for(i=0;i<num;i++){
+    stars += "*"
+  }
+  return stars
+}
+console.log(starString(8));
+
+function drawStars(arr){
+  for(i=0;i<arr.length;i++){
+    let stars = "";
+    if(Number.isInteger(arr[i])){
+      let len = arr[i];
+      for(x=0;x<len;x++){
+        stars += "*";
+      }
+    }
+    if(typeof arr[i] == 'string'){
+      let len = arr[i].length;
+      let letter = arr[i][0]
+      for(x=0;x<len;x++){
+        stars += letter;
+      }
+    }
+    console.log(stars);
+  }
+}
+let x = [1, 2, 3, 4, 5, "hello", "yyyessss"];
+drawStars(x);
+
+
+
+</script>
+</body>
+</html>

@@ -9,9 +9,9 @@ Welcome Scripters
  1. Fork this repo to your github account.
  2. Clone it locally onto your laptop.
  3. Create a folder with your name, ex: cody_williams
- 4. Add *this* (https://github.com/CodingDojoDallas/mean_march_2017/) repo as a REMOTE to your locally cloned copy.
+ 4. Add *this* (https://github.com/CodingDojoDallas/mean_march_2018/) repo as a REMOTE to your locally cloned copy.
 ```
-git remote add upstream https://github.com/codingdojodallas/mean_march_2017
+git remote add upstream https://github.com/codingdojodallas/mean_march_2018
 ```
  5. Profit!
 # Daily Commits
@@ -26,6 +26,7 @@ NOTE: If you don't get in at least one pull request daily, then *_ya ain't serio
 Angular Registration - https://scotch.io/tutorials/how-to-implement-a-custom-validator-directive-confirm-password-in-angular-2 <br>
 
 ## Videos
+OOP - https://youtu.be/2N20n3Obr5o <br>
 
 ## Demos:
 

@@ -1,0 +1,72 @@
+<html>
+<head>
+</head>
+<body style="background-color: yellow;">
+  <p style="font-size: 300px; color: red;">知るか</p>
+
+
+</div>
+
+
+
+
+<script>
+function zero_negativity(arr){
+  for(i=0;i<arr.length;i++){
+    if(arr[i]<0){
+      return false
+    }
+  }
+  return true
+}
+
+console.log(zero_negativity([1,2,3]))
+
+function is_even(num){
+  if(num%2==0){
+    return true
+  }
+  return false
+}
+
+console.log(is_even(33))
+
+function how_many_even(arr){
+  let sum = 0;
+  for(i=0;i<arr.length;i++){
+    if(is_even(arr[i])){
+      sum ++;
+    }
+  }
+  return sum;
+}
+
+console.log(how_many_even([3,3,2,3]))
+
+function create_dummy_array(n){
+  let arr = []
+  for(i=0;i<n;i++){
+    arr.push(Math.floor(Math.random()*10));
+  }
+  console.log(arr.length);
+  return arr;
+}
+
+console.log(create_dummy_array(10));
+
+function random_choice(arr){
+  len = arr.length
+  element = Math.floor(Math.random()*len);
+  return arr[element];
+}
+
+console.log(random_choice([1,2,3,4,5,6,7,8,9,18,17,16,15,14,13,12,11]));
+
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body style="background-color: yellow;">
+  <h1>Students</h1>
+  <ul id="main">
+    <!-- this is empty-->
+  </ul>
+
+  <p style="font-size: 300px; color: red;">知るか</p>
+<script>
+
+    function appendList(array, id){
+        for(i=0;i<array.length;i++){
+          let new_item = document.createElement("li");
+          new_item.innerHTML = array[i];
+          document.getElementById(id).appendChild(new_item);
+        }
+    };
+    let students = ["Jeff", "Jenny", "Javier", "Joslyn", "Joe", "Jane", "Django"];
+    let target_id = "main";
+    appendList(students, target_id);
+</script>
+
+</script>
+</body>
+</html>
