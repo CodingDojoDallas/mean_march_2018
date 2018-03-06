@@ -1,0 +1,54 @@
+<html>
+<head>
+</head>
+<body style="background-color: yellow;">
+  <p style="font-size: 300px; color: red;">知るか</p>
+<script>
+
+function Ninja(name){
+  this.name = name;
+  this.health = 100;
+  this.speed = 3;
+  this.strength = 3;
+  this.sayName = function(){
+    console.log(`my name is ${this.name}`);
+    return this;
+  }
+  this.showStats = function(){
+    console.log(`strength: ${this.strength}`);
+    console.log(`speed: ${this.speed}`);
+    console.log(`health: ${this.health}`)
+    return this;
+  }
+  this.drinkSake = function(){
+    this.health += 10;
+    return this;
+  }
+  this.punch = function(ninja){
+      if(ninja instanceof Ninja){
+      ninja.health -= 5;
+      console.log(`${ninja.name} was punched by ${this.name} and lost 5 health`);
+      return this;
+    }
+  }
+  this.kick = function(ninja){
+    if(ninja instanceof Ninja){
+      let damage = (15 * this.strength);
+      ninja.health -= damage;
+      console.log(`${ninja.name} was kicked by ${this.name} and lost ${damage} health`);
+    }
+  }
+}
+
+const kakashi = new Ninja('Kakashi');
+kakashi.drinkSake().drinkSake().drinkSake().drinkSake().sayName().showStats();
+
+const naruto = new Ninja('Naruto');
+kakashi.punch(naruto);
+kakashi.kick(naruto);
+
+
+
+</script>
+</body>
+</html>
