@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+
+      // function zero_negativity(array) {
+      //   for (let i = 0; i < array.length; i++) {
+      //     if (array[i] < 0) {
+      //       return true
+      //     }
+      //   }
+      //   return false;
+      // }
+      // console.log(zero_negativity([1,2,-3, 4, 5, 6]));
+
+      function is_even(number) {
+        if (number % 2 === 0) {
+          return true;
+        }
+        return false;
+      }
+      // console.log(is_even(3));
+
+      function how_many_even(array) {
+        count = 0
+        for (let i = 0; i < array.length; i++) {
+          if (is_even(i)) {
+            count++;
+          }
+        }
+        return count;
+      }
+      console.log(how_many_even([1,2,3,4,5,6,7,8,9,10]))
+
+      function random_number(maximum) {
+        return Math.floor(Math.random() * (maximum + 1));
+      }
+
+      function create_dummy_array(n) {
+        let array = [];
+        for (let i = 0; i < n; i++) {
+          array.push(random_number(9));
+        }
+        return array;
+      }
+      console.log(create_dummy_array(15));
+
+      function random_choice(array) {
+        if (!array) {
+          return 'Oops! You need to give an array';
+        }
+        return array[random_number(array.length - 1)];
+      }
+      console.log(random_choice([1,2,3,4,5,6,7,8,9,10]));
+      console.log(random_choice());
+
+    </script>
+  </body>
+</html>
