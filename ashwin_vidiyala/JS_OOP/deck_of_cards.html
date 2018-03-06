@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+
+      class Deck {
+        constructor() {
+          this.deck = this.constructor.createDeck();
+        }
+
+        static createDeck() {
+          let deck = [];
+          let suit = ['Clubs', 'Spades', 'Hears', 'Diamonds'];
+          for (let i = 0; i < suit.length; i++) {
+            for (let j = 1; j <= 13; j++) {
+              deck.push([j, suit[i]]);
+            }
+          }
+          return deck;
+        }
+
+        shuffle() {
+          let deck_length = this.deck.length, i, t;
+
+          while (deck_length) {
+            i = Math.floor(Math.random() * deck_length--);
+
+            t = this.deck[deck_length];
+            this.deck[deck_length] = this.deck[i];
+            this.deck[i] = t;
+          }
+          return this.deck;
+        }
+
+        reset() {
+          this.deck = this.constructor.createDeck();
+        }
+
+        deal() {
+          return this.deck.pop();
+        }
+
+      }
+
+      class Player {
+        constructor(name) {
+          this.name = name;
+          this.hand = [];
+        }
+
+        discard() {
+          if (this.hand.length > 0) {
+            return this.hand.pop();
+          }
+          return 'Empty hand';
+        }
+
+        take_card(card) {
+          this.hand.push(card);
+          return this;
+        }
+      }
+
+      const deck1 = new Deck();
+      deck1.shuffle();
+      console.log(deck1.deck);
+      // deck1.reset();
+      // console.log(deck1.deck);
+      console.log(deck1.deal());
+      console.log(deck1.deck);
+
+      const player1 = new Player('Ashwin');
+      console.log(player1.hand);
+      player1.take_card(deck1.deal()).take_card(deck1.deal()).take_card(deck1.deal());
+      console.log(player1.discard());
+      console.log(player1.hand);
+
+    </script>
+  </body>
+</html>
