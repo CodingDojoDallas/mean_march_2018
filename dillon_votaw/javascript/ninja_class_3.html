@@ -1,0 +1,49 @@
+<html>
+<head>
+</head>
+<body style="background-color: yellow;">
+  <p style="font-size: 300px; color: red;">知るか</p>
+<script>
+class Ninja {
+  constructor(name){
+    this.name = name;
+    this.health = 100;
+    this.speed = 3;
+    this.strength = 3;
+  }
+  sayName(){
+    console.log(this.name);
+    return this;
+  }
+  showStats(){
+    console.log(`strength: ${this.strength}; speed: ${this.speed}; health: ${this.health}`);
+    return this;
+  }
+  drinkSake(){
+    this.health += 10;
+    return this;
+  }
+}
+let ninja1 = new Ninja('naruto');
+ninja1.drinkSake().drinkSake().sayName().showStats();
+
+class Sensei extends Ninja{
+  constructor(name){
+    super(name);
+    this.health = 200;
+    this.speed = 10;
+    this.strength = 10;
+    this.wisdom = 10;
+  }
+  speakWisdom(){
+    super.drinkSake();
+    console.log("fuck the world")
+    return this;
+  }
+
+}
+let sensei1 = new Sensei('kakashi');
+sensei1.speakWisdom().sayName().showStats();
+</script>
+</body>
+</html>

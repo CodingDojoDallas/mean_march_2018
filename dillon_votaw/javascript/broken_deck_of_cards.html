@@ -1,0 +1,68 @@
+<html>
+<head>
+</head>
+<body style="background-color: yellow;">
+  <p style="font-size: 300px; color: red;">知るか</p>
+<script>
+
+
+class Deck{
+  constructor(){
+    let suits = ['A', 'B', 'C', 'D'];
+    let cards = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'X', 'J', 'Q', 'K'];
+    const populate = [];
+    for(let i=0;i<suits.length;i++){
+      var suit = suits[i];
+      for(let i=0;i<cards.length;i++){
+        var card = cards[i];
+        populate.push(suit+card);
+      }
+    }
+    this.deck = populate;
+    this.reset = populate;
+    console.log(this.reset);
+}
+  shuffle(){
+    var m = this.deck.length, t, i;
+    console.log(this.reset);
+    while(m){
+      i = Math.floor(Math.random()*m--);
+      t = this.deck[m];
+      this.deck[m] = this.deck[i];
+      this.deck[i] = t;
+  }
+    console.log(this.reset);
+  }
+  reset() {
+    // let suits = ['A', 'B', 'C', 'D'];
+    // let cards = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'X', 'J', 'Q', 'K'];
+    // let populate = [];
+    // for(let i=0;i<suits.length;i++){
+    //   var suit = suits[i];
+    //   for(let i=0;i<cards.length;i++){
+    //     var card = cards[i];
+    //     populate.push(suit+card);
+    //   }
+    // }
+    // console.log('testing');
+    // this.deck = populate;
+    console.log(this.reset);
+    this.deck = this.reset;
+    return this;
+  }
+
+}
+
+
+
+
+
+var myDeck = new Deck();
+myDeck.shuffle();
+console.log(myDeck.deck);
+myDeck.reset();
+console.log(myDeck.deck);
+console.log('\u2660 \u2665 \u2666 \u2663');
+</script>
+</body>
+</html>
