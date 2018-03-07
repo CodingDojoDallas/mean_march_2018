@@ -1,0 +1,22 @@
+function magic_multiply(x, y){
+	var multi = x * y;
+
+	if (x == 0 && y == 0) {
+		return "both inputs are 0";
+		return multi;
+	}
+	if (typeof y === "string"){
+		return "cannot multiply by string";
+		return multi;
+	}
+	if (typeof x === "string") {
+		str=""
+
+	for (var i = 0; i < y; i++){
+			str+=x;
+			console.log(str);
+		
+		}
+	}
+
+ }
