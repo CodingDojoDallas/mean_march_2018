@@ -1,0 +1,35 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="jquery.js"></script>
+</head>
+<body style="background-color: yellow;">
+<button id="clickButton">click me</button>
+<button id="hoverButton">hover me</button>
+<script>
+( function(){
+function $Dojo(id){
+  domOB = {
+    click: function(callback){
+      document.getElementById(id).addEventListener("click", callback);
+      return this;
+    },
+    hover: function(callbackIn,callbackOut){
+      document.getElementById(id).addEventListener("mouseover", callbackIn);
+      document.getElementById(id).addEventListener("mouseout", callbackOut);
+      return this;
+    }
+  };
+
+let output = domOB;
+console.log(output);
+return output;
+}
+$Dojo("clickButton").click(function(){console.log("the button was clicked")});
+$Dojo("hoverButton").hover(function(){console.log("HOVER ON")},function(){console.log("HOVER OFF")});
+}());
+
+</script>
+
+</body>
+</html>

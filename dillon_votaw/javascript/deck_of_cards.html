@@ -10,8 +10,8 @@ class Deck{
   constructor(){
     this.suits = ['A', 'B', 'C', 'D'];
     this.cards = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'X', 'J', 'Q', 'K'];
+    this.deck = [];
     this.deck = this.reset();
-    this.reset = this.reset();
   }
   shuffle(deckset){
     var m = deckset.length;
@@ -25,7 +25,7 @@ class Deck{
     }
     return deckset;
   }
-  reset() {
+  reset(){
     let populate = [];
     for(let i=0;i<this.suits.length;i++){
       var suit = this.suits[i];
@@ -37,7 +37,7 @@ class Deck{
     return populate;
   }
   deal(deckset){
-    deckset = this.shuffle(deckset);
+    // deckset = this.shuffle(deckset); THIS IS NOT REALISTIC
     let card = deckset[deckset.length-1]
     console.log(card);
     return deckset.pop();
@@ -61,15 +61,21 @@ class Player{
 }
 
 
-
+// below is lots of gross debugging
 let myDeck = new Deck();
+let deck2 = new Deck();
 let Dillon = new Player();
 console.log(myDeck.deck, "decklist");
+
 myDeck.deck = myDeck.shuffle(myDeck.deck);
 console.log(myDeck.deck, "shuffledDecklist");
-console.log(myDeck.reset, "resetlist");
+myDeck.deck = deck2.reset();
+console.log(myDeck.deck, "resetDeckList");
+myDeck.deck = myDeck.shuffle(myDeck.deck);
 myTake = Dillon.take(myDeck.deal(myDeck.deck));
+console.log(myDeck.deck);
 myTake = Dillon.take(myDeck.deal(myDeck.deck));
+console.log(myDeck.deck);
 myTake = Dillon.take(myDeck.deal(myDeck.deck));myTake = Dillon.take(myDeck.deal(myDeck.deck));myTake = Dillon.take(myDeck.deal(myDeck.deck));
 console.log(Dillon.hand);
 Dillon.hand = Dillon.discard(0);Dillon.hand = Dillon.discard(0);Dillon.hand = Dillon.discard(0);
