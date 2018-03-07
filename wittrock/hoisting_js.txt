@@ -1,0 +1,16 @@
+#1:
+undefined
+#2:
+"magnet"
+#3:
+"super cool"
+#4:
+"chicken"
+#5:
+mean is not a function
+#6:
+undefined
+"disco"
+"disco"
+#7:
+undefined
