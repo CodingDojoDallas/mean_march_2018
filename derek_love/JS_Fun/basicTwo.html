@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		function magic_multiply(x, y){
+			if(typeof x == 'number' && typeof y == 'number'){
+				x *= y;
+				return x;
+			}
+			else if(Array.isArray(x) == true){
+				for(let i = 0; i < x.length; i++){
+					x[i] *= y;
+				}
+				return x;
+			}
+			else if(typeof y == 'string'){
+				return "Error: Can not multipy by string";
+			}
+			else if(typeof x == 'string'){
+				// only can be used in ES6, would use a while loop or recursion otherwise
+				return x.repeat(y);
+			}
+		}
+
+		let test1 = magic_multiply(5, 2);
+		console.log(test1);
+
+		let test2 = magic_multiply(0, 0);
+		console.log(test2);
+
+		let test3 = magic_multiply([1, 2, 3], 2);
+		console.log(test3);
+
+		let test4 = magic_multiply(7, "three");
+		console.log(test4);
+
+		let test5 = magic_multiply("Derek", 4);
+		console.log(test5);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

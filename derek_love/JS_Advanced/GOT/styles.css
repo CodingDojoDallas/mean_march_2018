@@ -1,0 +1,22 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+#container{
+	width: 1600px;
+}
+
+img{
+	margin: 10px;
+	width: 300px;
+	height: 200px;
+	display: inline-flex;
+	justify-content: space-around;
+}
+
+#detail{
+	border: 2px solid black;
+	width: 500px;
+	margin: 0px auto;
+}
