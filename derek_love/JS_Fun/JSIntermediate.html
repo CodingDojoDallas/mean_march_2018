@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		function starString(n){
+			starNum = "*".repeat(n);
+			return starNum;
+		}
+
+		function drawStars(arr){
+			for(let i = 0; i < arr.length; i++){
+				if(typeof arr[i] == 'number'){
+					console.log("*".repeat(arr[i]));
+				}
+				else if(typeof arr[i] == 'string'){
+					let first = arr[i][0];
+					let str_length = arr[i].length;
+					console.log(first.repeat(str_length));
+				}
+			}
+		}
+
+		let x = [4,'derek',1,'love',5,'isawesome',25];
+		drawStars(x);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

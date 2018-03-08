@@ -29,4 +29,4 @@ Angular Registration - https://scotch.io/tutorials/how-to-implement-a-custom-val
 OOP - https://youtu.be/2N20n3Obr5o <br>
 
 ## Demos:
-Dojo Query / First Node Server - https://youtu.be/NgtOp7pXtck <br>
+

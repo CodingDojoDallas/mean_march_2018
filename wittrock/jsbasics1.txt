@@ -1,0 +1,38 @@
+var x=[]
+x.push("coding")
+x.push("dojo")
+x.push("rocks")
+console.log(x)
+(3) ["coding", "dojo", "rocks"]
+
+
+const y = []
+y.push[88]
+console.log(y)
+[88]
+
+it printed the same sort of output as the variable output but when it was logged it didn't
+print how many values were in the array
+
+z=[9, 10, 6, 5, -1, 20, 13, 2]
+console.log(z)
+z.pop
+console.log(z)
+
+for (var i = 0; i < names.length; i++) {
+
+	var b = names[i]
+	if (b.length > 4 && b.length < 6) {
+		console.log(b);
+
+	}
+
+
+}
+don't know why b.length = 5 in the if statement didn't work, but this was my solution
+
+
+function yell(str) {
+	var upper = str.toUpperCase();
+	console.log(upper);
+}
