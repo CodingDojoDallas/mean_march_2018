@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+		<%if(result == 'high'){%>
+		<div id="wrong"><h1>TOO HIGH</h1></div>
+    <% } %>
+		<%if(result == 'low'){%>
+		<div id="wrong"><h1>TOO LOW</h1></div>
+    <% } %>
+		<%if(result == 'correct'){%>
+		<div id="right"><h1>YOU GOT IT</h1>
+		<form action='/clear' method='post'>
+			<input type='hidden' name='clear' value='clear'>
+			<p><input type='submit' name='clear' value='PLAY AGAIN'></p>
+		</form>
+		</div>
+    <% } %>
+		<% if(result == 'clear'){%>
+		<h1> </h1>
+		<% } %>
+		<h1>頑張って下さい</h1>
+		<p>The correct number is between 1 and 100.</p>
+		<p>The correct number changes with each guess.</p>
+		<p>Good luck.</p>
+		<div id="result"></div>
+		<form action='/process' method='post'>
+			<input type='number' name='guess'>
+			<p><input type='submit' value='guess!'></p>
+		</form>
+		<form action='/clear' method='post'>
+			<input type='hidden' name='clear' value='clear'>
+			<p><input type='submit' name='clear' value='reset game'></p>
+		</form>
+
+  </body>
+</html>

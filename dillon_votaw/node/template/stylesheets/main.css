@@ -1,0 +1,39 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+*{
+    margin: auto;
+    padding: 0px;
+}
+
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	background-color: pink;
+}
+
+
+a{
+	color: rgb(99,178,118);
+}
+
+
+#wrapper{
+	width: 1000px;
+	/*padding: 10px;*/
+	height: auto;
+	background-color: pink;
+	padding:50px
+	margin: auto;
+}
+
+
+
+form  { display: table;  }
+form p{ display: table-row;  }
+label { display: table-cell; text-align: right; }
+input { display: table-cell;}
