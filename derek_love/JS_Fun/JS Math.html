@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		// function zero_negativity(arr){
+		// 	for(let i = 0; i < arr.length; i++){
+		// 		if(arr[i] < 0){
+		// 			// if number in arr is negative return false
+		// 			return false;
+		// 		} 
+		// 	}
+		// 	// if no numbers in arr are negative return true
+		// 	return true;
+		// }
+		// let test1 = zero_negativity([1,2,3]);
+		// console.log(test1);
+		// // test1 returned true
+
+		// let test2 = zero_negativity([-1,5,3]);
+		// console.log(test2);
+		// // test2 returned false
+
+		// function is_even(n){
+		// 	if(n % 2 == 0){
+		// 		return true;
+		// 	}
+		// 	else{
+		// 		return false;
+		// 	}
+		// }
+
+		// let test1 = is_even(55);
+		// console.log(test1);
+		// // test1 returned false
+
+		// let test2 = is_even(10);
+		// console.log(test2);
+		// // test2 returned true
+
+		// function how_many_even(arr){
+		// 	let count = 0
+		// 	for(let i = 0; i < arr.length; i++){
+		// 		if(is_even(arr[i]) == true){
+		// 			count++
+		// 		}
+		// 	}
+		// 	return count
+		// }
+
+		// let test1 = how_many_even([1,2,3,4,5,6]);
+		// console.log(test1);
+		// // returned 3
+
+		// let test2 = how_many_even([1,3,5]);
+		// console.log(test2);
+		// // returned 0
+
+		// function create_dummy_array(n){
+		// 	let arr = [];
+		// 	for(let i = 0; i < n; i++){
+		// 		arr.push(Math.floor(Math.random() * 10));
+		// 	}
+		// 	return arr;
+		// }
+
+		// let test1 = create_dummy_array(5);
+		// console.log(test1);
+		// // returned [2,3,9,1,8]
+
+		// let test2 = create_dummy_array(7);
+		// console.log(test2);
+		// // returned [9,9,3,4,4,1,3]
+
+		function random_choice(arr){
+			return arr[Math.floor(Math.random() * arr.length)];
+		}
+
+		let test1 = random_choice([1, 2, 3, 4, 5]);
+		console.log(test1);
+
+		let test2 = random_choice([1, 'hello', 5, 'derek']);
+		console.log(test2);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

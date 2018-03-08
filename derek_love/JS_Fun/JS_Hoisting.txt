@@ -1,0 +1,34 @@
+Challenge #1
+
+//undefined
+
+Challenge #2
+
+//magnet
+
+Challenge #3
+
+//super cool
+
+Challenge #4
+
+//chicken
+//half-chicken
+
+Challenge #5
+
+//error: mean is not a function
+
+Challenge #6
+
+//undefined
+//rock
+//r&b
+//disco
+
+Challenge #7
+
+//undefined
+//seattle
+//burbank
+//undefined
