@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	class Deck{
+		constructor(){
+			this.deck=this.createDeck();
+		}
+
+		createDeck(){
+			let deck = []
+			let suit = ["hearts", "diamonds", "spades", "clubs"];
+			let face = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "queen", "king"]
+			let weight = parseInt(face[i])
+			for (var f = 0; f < suit.length; f++) {
+				
+			for (var i = 0; i < face.length; i++) {
+				
+				if (face[i] == "jack" || face[i] == "queen" || face[i] == "king")
+					weight=10;
+				
+				if (face[i] == "Ace") 
+					weight=11;
+				
+			var card = {Value: face[f], Suit: suit[i], Weight: weight};
+				deck.push(card)
+				
+			}
+		}
+			return deck;
+			console.log(this.deck)
+		}
+
+		shuffle(){
+			let shuffling=this.deck.length, j, c;
+			while (shuffling){
+				let c = Math.floor(Math.random() * shuffling--);
+				let t = [shuffling];
+				this.deck[shuffling] = this.deck[c];
+				this.deck[c]=j;
+			}
+			return this.deck;
+		}
+		reset(){
+			this.deck = this.constructor.createDeck();
+		}
+		deal(player){
+			console.log(player);
+			console.log(this.deck);
+			player.hand.push(this.deck.pop());
+		}
+	}
+
+	class Player {
+		constructor(name, hand){
+			this.name=name;
+			this.hand=[];
+		}
+		start(){
+			var currentplayer=0;
+			createDeck();
+			shuffle();
+			createplayers(2);
+			createPlayersUI();
+			dealhands();
+			document.getElementById('player__'+currentplayer).classlist.add('active');
+			document.getElementById('start').click(start())
+
+		}
+		createPlayers(num){
+			players = new [];
+			for (var t = 1; t < num; t++) {
+				var player = {Name: "person" + t, ID: t, Points: 0, hand: this.hand };
+				players.push(player);
+				
+			}
+		}
+		gofish(){
+
+			console.log(this.hand);
+		}
+		discard(){
+			this.hand.pop()
+		}
+		dealhands(){
+			for (var q; q < players.length ;q++){
+				var card = super.deal();
+				players[q].hand.push(card);
+				renderCard(card, x);
+				updatepoints();
+
+			}
+			return this.hand;
+		}
+		renderCard(card, player){
+		 	let hand = document.getElementById('hand_'+player)
+		 	hand.appendChild(getCardUI(card))
+		}
+		getCardUI(){
+			let el = document.createElement('div');
+			el.className='card';
+			el.innerHTML= `${card.suit}, ${card.value}`;
+			return el;
+			}
+		getpoints(player){
+			var points = 0;
+			for (let l = 0; l < hand.length; l++) {
+				points += players[player].hand[l].weight;
+			}
+			players[player].Points = points;
+			return points
+		}
+		updatePoints()
+        {
+            for (var i = 0 ; i < players.length; i++)
+            {
+                getPoints(i);
+                document.getElementById('points_' + i).innerHTML = players[i].Points;
+            }
+        }
+
+		hitMe(){
+			var currentplayer = 0;
+			players[currentplayer].hand.push(card);
+			renderCard(card, currentplayer);
+			updatepoints();
+			check();
+
+		}
+		check(){
+			if (players[currentplayer].points > 21)
+			{
+				document.getElementById('status').innerHTML= `player: ${players[currentplayer].id}, Lost`;
+
+			}
+		}
+		stay()
+        {
+            // move on to next player, if any
+            if (currentPlayer != players.length-1) {
+                document.getElementById('player_' + currentPlayer).classList.remove('active');
+                currentPlayer += 1;
+                document.getElementById('player_' + currentPlayer).classList.add('active');
+            }
+
+            else {
+                end();
+            }
+        }
+        end()
+        {
+            var winner = -1;
+            var score = 0;
+
+            for(var i = 0; i < players.length; i++)
+            {
+                if (players[i].Points > score && players[i].Points < 22)
+                {
+                    winner = i;
+                }
+
+                score = players[i].Points;
+            }
+
+            document.getElementById('status').innerHTML = `winner: Player ${players[winner].id}`
+        }
+
+		createPlayersUI(){
+            document.getElementById('players').innerHTML = '';
+            for(var i = 0; i < players.length; i++)
+            {
+                var div_player = document.createElement('div');
+                var div_playerid = document.createElement('div');
+                var div_hand = document.createElement('div');
+                var div_points = document.createElement('div');
+
+                div_points.className = 'points';
+                div_points.id = 'points_' + i;
+                div_player.id = 'player_' + i;
+                div_player.className = 'player';
+                div_hand.id = 'hand_' + i;
+
+                div_playerid.innerHTML = players[i].ID;
+                div_player.appendChild(div_playerid);
+                div_player.appendChild(div_hand);
+                div_player.appendChild(div_points);
+                document.getElementById('players').appendChild(div_player);
+            }
+        }
+	}
+
+
+
+
+
+		
+	
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#006633  TEXT=#e1ffd7 LINK=#FFFFFF VLINK=#FFFFFF>
+	<style type="text/css">      
+	.game{
+            width: 720px;
+            border: solid 1px #ddd;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .card{
+            width: 70px;
+            height: 100px;
+            padding: 10px;
+            border: solid 1px #808080;
+            background-color: white;
+            display: inline-block;
+            border-radius: 10px;
+            font-size: 8pt;
+            text-align: center;
+            margin: 3px;
+        }
+
+        .players{
+            float:left;
+            width: 500px;
+        }
+
+        .player{
+            width: 40%;
+            border: solid 2px #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            display: inline-block;
+            margin:1%;
+            vertical-align: top;
+        }
+
+        .player.active{
+            border: solid 2px #1caff6;
+        }
+
+        .points{
+            text-align: center;
+            font-size: 20pt;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .deck{
+            float:right;
+            width: 200px;
+        }</style>
+</head>
+<body>
+<div class="game">
+        <h1>Blackjack</h1>
+        <input type="button" id="start" class="btn" value="start" onclick="start()" />
+        <input type="button" id="hit" class="btn" value="hit me" onclick="hitMe()" />
+        <input type="button" id="stay" class="btn" value="stay" onclick="stay()" />
+
+        <div id="players" class="players">
+        </div>
+
+        <div id="deck" class="deck">
+            <div class="card" id="deckcount">52</div>
+            <div class="status" id="status"></div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</body>
+</html>
