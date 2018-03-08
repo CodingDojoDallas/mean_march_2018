@@ -5,3 +5,4 @@ bootstrap.sh
 VagrantFile
 bower_components/
 node_modules
+package-lock*
