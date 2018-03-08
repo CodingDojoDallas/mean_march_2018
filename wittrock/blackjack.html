@@ -48,19 +48,21 @@
 		deal(player){
 			console.log(player);
 			console.log(this.deck);
-			player.hand.push(this.deck.pop());
+			Player.hand.push(this.deck.pop());
 		}
 	}
 
-	class Player {
+	class Player{
 		constructor(name, hand){
 			this.name=name;
 			this.hand=[];
 		}
 		start(){
 			var currentplayer=0;
-			createDeck();
-			shuffle();
+			super.deal();
+
+			super.createDeck();
+			super.shuffle();
 			createplayers(2);
 			createPlayersUI();
 			dealhands();
@@ -69,10 +71,10 @@
 
 		}
 		createPlayers(num){
-			players = new [];
+			var players = new [];
 			for (var t = 1; t < num; t++) {
 				var player = {Name: "person" + t, ID: t, Points: 0, hand: this.hand };
-				players.push(player);
+				players.push(players);
 				
 			}
 		}
@@ -80,9 +82,7 @@
 
 			console.log(this.hand);
 		}
-		discard(){
-			this.hand.pop()
-		}
+		
 		dealhands(){
 			for (var q; q < players.length ;q++){
 				var card = super.deal();
@@ -91,7 +91,7 @@
 				updatepoints();
 
 			}
-			return this.hand;
+			return hand;
 		}
 		renderCard(card, player){
 		 	let hand = document.getElementById('hand_'+player)
@@ -116,7 +116,7 @@
             for (var i = 0 ; i < players.length; i++)
             {
                 getPoints(i);
-                document.getElementById('points_' + i).innerHTML = players[i].Points;
+                document.getElementById('points_' + i).innerHTML = players[i].points;
             }
         }
 
@@ -168,12 +168,12 @@
 
 		createPlayersUI(){
             document.getElementById('players').innerHTML = '';
-            for(var i = 0; i < players.length; i++)
+            for(let i = 0; i < players.length; i++)
             {
-                var div_player = document.createElement('div');
-                var div_playerid = document.createElement('div');
-                var div_hand = document.createElement('div');
-                var div_points = document.createElement('div');
+                let div_player = document.createElement('div');
+                let div_playerid = document.createElement('div');
+                let div_hand = document.createElement('div');
+                let div_points = document.createElement('div');
 
                 div_points.className = 'points';
                 div_points.id = 'points_' + i;
