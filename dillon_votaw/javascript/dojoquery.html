@@ -1,22 +1,22 @@
 <html>
 <head>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="jquery.js"></script>
 </head>
 <body style="background-color: yellow;">
 <button id="clickButton">click me</button>
 <button id="hoverButton">hover me</button>
 <script>
 ( function(){
-function $Dojo(id){
+var $Dojo = function(id){
+  var element = document.getElementById(id);
   domOB = {
     click: function(callback){
-      document.getElementById(id).addEventListener("click", callback);
+      element.addEventListener("click", callback);
       return this;
     },
     hover: function(callbackIn,callbackOut){
-      document.getElementById(id).addEventListener("mouseover", callbackIn);
-      document.getElementById(id).addEventListener("mouseout", callbackOut);
+      element.addEventListener("mouseover", callbackIn);
+      element.addEventListener("mouseout", callbackOut);
       return this;
     }
   };

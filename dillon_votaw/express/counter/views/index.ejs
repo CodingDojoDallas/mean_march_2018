@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <h1>this page has been viewed <%= count %> times</h1>
+    <form action='/two' method='post'>
+        <input type='submit' value='add two to view count'>
+    </form>
+    <form action='/reset' method='post'>
+        <input type='submit' value='reset view count'>
+    </form>
+  </body>
+</html>
