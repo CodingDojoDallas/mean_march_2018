@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="main.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+    $(document). ready(function (){
+      var socket  = io.connect();
+      var username = prompt("enter your username", "if you refresh this page, you will be logged out");
+      socket.emit("new_connection");
+
+
+      $('#myMessage').submit(function(){
+        message = $('#message').val();
+        data = {
+          name: username,
+          message: message
+        }
+        socket.emit('message_post', data);
+        return false;
+      })
+
+      socket.on('message_response', function(data){
+        $('#chatBox').html('');
+        console.log(data, "logging data");
+        console.log(data[0]);
+        for(let i=0;i<data.length;i++){
+          console.log(i, 'this is i')
+          let post = data[i]
+          $('#chatBox').append(`<p>${post}</p>`)
+        }
+      })
+    })
+
+</script>
+  </head>
+  <body>
+    <div id='chatBox' style='background-color: white; width: 500px; height: 350px; overflow: auto; text-align: left;'>ahhh</div>
+    <p>sorry - our robots don't know how to scroll to the bottom of the chat box'</p>
+    <form id='myMessage' action=''>
+      <textarea id='message' rows='5' cols='50'></textarea>
+      <p><input type='submit' value='~ ~ ~ submit post ~ ~ ~'></p>
+    </form>
+    <h1 style="color: green">~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</h1>
+    <h1 style="color: green">~ ~ ~ ~ ~ ~ ~ ~ ~ ~</h1>
+    <h1 style="color: green">~ ~ ~ ~ ~ ~ ~ ~ ~</h1>
+    <h1 style="color: green">~ ~ ~ ~ ~ ~ ~ ~</h1>
+    <h1 style="color: green">~ ~ ~ ~ ~ ~ ~</h1>
+    <h1 style="color: green">~ ~ ~ ~ ~ ~</h1>
+    <h1 style="color: green">~ ~ ~ ~ ~</h1>
+    <h1 style="color: green">~ ~ ~ ~</h1>
+    <h1 style="color: green">~ ~ ~</h1>
+    <h1 style="color: green">~ ~</h1>
+    <h1 style="color: green">~</h1>
+
+
+  </body>
+</html>

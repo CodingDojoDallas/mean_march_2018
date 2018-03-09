@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="main.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+    $(document).ready(function (){
+      var socket  = io.connect();
+      $('#myForm').submit(function(){
+        // var data = $(this).serializeArray();
+        var data2 = {
+          name:$('#name').val(),
+          location:$('#location').val(),
+          language:$('#language').val(),
+          comment:$('#comment').val()
+        }
+        socket.emit('posting_form', data2);
+                 return false;
+       })
+
+       socket.on('updated_message', function(data){
+         $('#response').html(data);
+       })
+       socket.on('random_number', function(data){
+         $('#response').append(data);
+       })
+    })
+    </script>
+  </head>
+  <body>
+    <h3 id='response'></h3>
+    <h1>what could be worse?</h1>
+    <form id='myForm' action=''>
+      Your Name: <input id='name' type='text' name='name'>
+			Dojo Location: <select id='location' name='location'>
+				<option value="silicon valley">Silicon Valley</option>
+				<option value="la">Los Angeles</option>
+				<option value="dallas">Dallas</option>
+				<option value="tulsa">Tulsa</option>
+				<option value="chicago">Chicago</option>
+				<option value="dc">Washington DC</option>
+			</select>
+			Favorite Language: <select id='language' name='language'>
+				<option value="python">Python</option>
+				<option value="ruby">Ruby on Rails</option>
+				<option value="mean">MEAN</option>
+			</select>
+			Comment (optional): <textarea id='comment' name='comment'></textarea>
+			<input type='submit' value='Submit'>
+    </form>
+  </body>
+</html>

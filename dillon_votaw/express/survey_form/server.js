@@ -16,7 +16,7 @@ app.get('/', function(req, res) {
 })
 
 app.post('/result', function(req, res) {
-  console.log("POST DATA \n \n", req.body);
+  // console.log("POST DATA \n \n", req.body);
 
  res.render("result", {results: req.body});
 })
