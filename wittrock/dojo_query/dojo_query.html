@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+
+</head>
+<body>
+	<h1 id="idk">click me</h1>
+	
+		<script>
+		
+			var $Dojo=function (id){
+				var element = document.getElementById(id);
+				
+				 return {
+					click: function(callback){
+						element.addEventListener("click", callback);
+						
+						
+						return this;
+					},
+					hover: function(callback, calltwo){
+						element.addEventListener("mouseover", callback)
+						element.addEventListener("mouseout", calltwo)
+						return this;
+
+					}
+					
+				
+				}
+			}
+			$Dojo("idk").click(function(){console.log("button was clicked")}) 
+			$Dojo("idk").hover(function(){console.log("hello")}), function(){console.log("goodbye")}
+	</script>
+</body>
+</html>
