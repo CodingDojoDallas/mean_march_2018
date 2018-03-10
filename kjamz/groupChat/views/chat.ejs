@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title> Cool Cats Chat </title>
+		<link rel="stylesheet" href="/css/chat.css">
+	</head>
+	<body>
+		<div id="container">
+			<header>
+				<img id="cats" src="/images/coolCatsClub.jpg" alt="Cool Cats Club">
+				<h3 id="chat_head"> Welcome to the Cool Cat Chat </h3>
+			</header>
+			<main id="content">
+				<div id="displayChat">
+					<table id="user_block">
+						
+					</table>
+				</div>
+
+				<form id="chat_box" action="/room" method="POST">
+					<h3 id="username"> <%= user.name %> says: </h3>
+					<input id="message" autocomplete="off" type="text">
+					<input type="submit" value="Send">
+				</form>
+			</main>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="/js/chat.js"></script>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	</body>
+</html>
