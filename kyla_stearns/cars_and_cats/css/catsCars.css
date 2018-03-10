@@ -1,0 +1,15 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, sans-serif;
+}
+
+#pics{
+	width: 970px;
+	margin: auto;
+}
+
+img{
+	display: block;
+	width: 45%;
+}
