@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title> Cool Cats Chat </title>
-		<link rel="stylesheet" href="/css/chat.css">
-	</head>
-	<body>
-		<div id="container">
-			<main id="content">
-				<form id="user" action="/chat" method="POST">
-					<h3> Come chat with the coolest cats</h3>
-					<img src="/images/coolCatsClub.jpg" alt="Cool Cats Club">
-					<label> Your Name: <span><input type="text" name="name"></span> </label>
-					<button> Be lame </button>
-					<input type="submit" value="Join the fun!">
-				</form>
-			</main>
-		</div>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/chat.css">
+    <title> Broadcast Example </title>
+  </head>
+  <body>
+    <header id="user_name">
+      <h1> Conversation Board </h1>
+    </header>
+    
+    <main>
+      <div id="board">
 
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="/js/chat.js"></script>
-		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
-	</body>
+
+      </div>
+
+      <form action="" id="message">
+        <textarea name="message" rows="2"></textarea>
+        <input type="submit" value="Post">
+      </form>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/js/chat.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  </body>
 </html>

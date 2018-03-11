@@ -1,0 +1,111 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, sans-serif;
+}
+
+:root{
+	--catBlue: #00B0EB;
+	--yellow: #FEF24E;
+}
+
+#container{
+	width: 970px;
+	margin: auto;
+	padding: 25px;
+	font-size: 16px;
+}
+
+#content{
+	margin: auto;
+	padding: 10px;
+	width: 50%;
+}
+
+h3{
+	color: var(--catBlue);
+	text-align: center;
+}
+
+img{
+	display: block;
+	margin: auto;
+}
+
+#chat_head{
+	display: inline;
+	vertical-align: top;
+}
+
+#cats{
+	display: inline;
+	height: 100px;
+	width: 100px;
+	margin-top: -25px;
+}
+
+form{
+	padding: 10px;
+}
+
+label{
+	display: block;
+	font-weight: bold;
+	margin: 5px 10px 5px 100px;
+}
+
+input{
+	font-size: 16px;
+	margin: 15px 0px 15px 10px;
+	border: 2px solid black;
+	padding: 2px;
+}
+
+input[type=submit]{
+	padding: 5px;
+	font-size: 14px;
+	background-color: var(--yellow);
+	border: 2px solid black;
+	box-shadow: 2px 2px black;
+	margin: 10px 0px 10px 10px;
+}
+
+button{
+	padding: 5px;
+	font-size: 14px;
+	background-color: var(--yellow);
+	border: 2px solid black;
+	box-shadow: 2px 2px black;
+	margin: 10px 0px 10px 250px;
+}
+
+table{
+	padding: 5px;
+	margin: 25px 15px 25px 15px; 
+}
+
+th{
+	background-color: lightgrey;
+	border: 2px solid black;
+}
+
+#user{
+	border: 2px solid black;
+}
+
+#username{
+	display: inline;
+	font-style: italic;
+}
+
+#displayChat{
+	border: 2px solid black;
+	height: 350px;
+	width: 650px;
+	overflow: scroll;
+}
+
+#chat_box{
+	width: 400px;
+	margin-left: 300px;
+}

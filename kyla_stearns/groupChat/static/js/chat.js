@@ -1,33 +1,31 @@
-$(document).ready(() => {
-	// this triggers the connection event in our server
+$(document). ready(function (){
+  var socket  = io.connect();
 
-	// let socket = io.connect();
-	var socket = io();
-	// we'll write all the socket stuff after this line
+  var input_name = prompt("Local host says: what is your name?", "write your name here!");
+  if (confirm("Hello " + input_name +"! Click OK")) {
+  // session.name = input_name;
+    console.log(input_name);
+    $('#user_name').append("<h3> Welcome " + input_name + "</h3>");
 
-	$('#user').submit(() => {
-		// alert('Handler for .submit() called.');
-		// event.preventDefault();
+  } 
+  else {
+    txt = "You pressed Cancel!";
+    console.log(txt);
+  }
 
-		// go get all the data from the form and pass it along
-		// let userData = $('#user').serializeArray();
+  $('#message').submit(function (){
+    console.log($(this).serializeArray());
+    var message = $(this).serializeArray()[0].value;
+    var name = input_name;
+    console.log(message, input_name);
+    socket.emit("message_posted", {message: message, name: name});
 
-		socket.emit('user_joined');
-		// console.log(userData);
-	// });
+    return false;
+  });
 
-	$('#chat_box').submit(() => {
-		socket.emit('chat message', $('#message').val());
-		$('#message').val('');
-		console.log($('#message').val());
-		return false;
-	});
+  socket.on('server_response', function (data){
+    console.log("username & message", data);
+    $('#board').append("<p><span>" + data.name + " says: </span> " +  data.message + "</p>");
+  });
 
-	socket.on('respond_with_user', () => {
-	// 	console.log(userData[0]);
-		console.log("We see you!");
-
-	// 	let user = `<th> ${userData[0].value} </th>`;
-	// 	$('#user_block').append(user);
-	});
 })
