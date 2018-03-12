@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1 id='text'>Random Text</h1>
+
+    <script>
+      let $Dojo = function(id) {
+        let element = document.getElementById(id);
+
+        return  {
+          click: function(callback) {
+            element.addEventListener('click', callback);
+          },
+          hover: function(callback) {
+            element.addEventListener('mouseover', callback);
+          }
+        }
+      }
+
+      $Dojo('text').click(function() { console.log('You clicked me!') });
+      $Dojo('text').hover(function() { console.log('You hovered over me!') });
+
+    </script>
+  </body>
+</html>
