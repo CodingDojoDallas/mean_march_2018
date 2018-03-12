@@ -9,4 +9,3 @@ $(document).ready(function(){
 	var getinfo = $.get("https://api.github.com/users/wittrock96",function(data){return $('#myname').html(data.login)})
 	})
 
-// console.log(`speed: ${this.speed}`);
