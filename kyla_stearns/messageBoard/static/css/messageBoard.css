@@ -1,0 +1,123 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, sans-serif;
+}
+
+#container{
+	width: 970px;
+	padding: 25px;
+}
+
+#header{
+	margin: 0px 0px 25px 0px;
+	border-bottom: 2px solid black;
+	width: 100%;
+}
+
+h3{
+	color: blue;
+	margin-bottom: 15px;
+}
+
+h4{
+	margin: 25px 0px 25px 0px;
+	color: red;
+}
+
+h1{
+	display: inline;
+}
+
+h5{
+	display: inline;
+	margin-left: 650px;
+	margin-right: 5px;
+}
+
+label{
+	font-weight: bold;
+	font-size: 14px;
+}
+
+input[type=text]{
+	align-content: right;
+	display: block;
+	border: 2px solid black;
+	padding: 2px;
+	margin: 5px 0px 15px 25px;
+	font-size: 14px;
+}
+
+input[type=submit]{
+	padding: 5px;
+	display: block;
+	margin-top: 10px;
+	background-color: lightblue;
+	border: 2px solid black;
+	box-shadow: 2px 2px;
+	font-size: 16px;
+}
+
+#messagebox{
+	height: 200px;
+	width: 850px;
+	border: 2px solid black;
+	margin: 15px 0px 15px 25px;
+	font-size: 14px;
+}
+
+#messagebutton{
+	margin-left: 700px;
+}
+
+#msglog{
+	padding: 25px;
+	margin: 15px 0px 15px 0px;
+	text-overflow: scroll;
+}
+
+#msglog p{
+	margin: 10px 0px 0px 0px;
+}
+
+#msglog h4{
+	margin: 15px 0px 0px 550px;
+	color: blue;
+	font-style: italic;
+}
+
+.names{
+	font-style: italic;
+}
+
+#message_words{
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.comment_form{
+	margin-left: 550px;
+}
+
+#commentbox{
+	height: 25px;
+	width: 350px;
+	border: 2px solid black;
+	margin: 15px 0px 5px 25px;
+	font-size: 12px;
+}
+
+#commentbutton{
+	background-color: lightgrey;
+	font-size: 14px;
+	margin-left: 250px;
+}
+
+#commentlog{
+	margin: 0px 0px 0px 50px;
+}
+
+#comment_words{
+	font-size: 16px;
+}

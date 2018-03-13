@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="/css/animals.css">
+		<title> Ringtailed Lemurs! </title>
+	</head>
+	<body>
+		<header>
+			<h2> <%= this_animal[0].name %>'s Info </h2>	
+		</header>
+
+		<main> 
+			<div id="info">
+				<h4> Age: <%= this_animal[0].age %> </h4>
+				<h4> Hobbies: <%= this_animal[0].hobbies %> </h4>
+				<p><a href="/animals/edit/<%= this_animal[0]._id %>"> Edit </a> | <a href="/animals/destroy/<%= this_animal[0]._id %>"> Delete </a> | <a href="/"> Return Home </a></p>
+			</div>
+		</main>
+	</body>
+</html>

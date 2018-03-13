@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="/css/animals.css">
+		<title> Ringtailed Lemurs! </title>
+	</head>
+	<body>
+		<header>
+			<h2> Welcome to the Lemur page </h2>	
+		</header>
+
+		<main> 
+
+			<% if(typeof(errors) != 'undefined') { %>
+				<% for(var i in errors) { %>
+				<h4> <%= errors[i].message %></h4>
+				<% } %>
+			<% } %>
+			<table>
+				<thead>
+					<th> Name </th>
+					<th> Age </th>
+					<th> Hobbies </th>
+					<th> Actions </th>
+				</thead>
+				<tbody>
+					<% for (let i in all_animals) { %>
+					<tr>
+						<td> <a href="/animals/<%= all_animals[i]._id %>"> <%= all_animals[i].name %> </a> </td>
+						<td> <%= all_animals[i].age %> </td>
+						<td> <%= all_animals[i].hobbies %> </td>
+						<td> <a href="/animals/edit/<%= all_animals[i]._id %>"> Edit </a> | <a href="/animals/destroy/<%= all_animals[i]._id %>"> Delete </a> </td>
+					</tr>
+					<% } %>
+				</tbody>
+			</table>
+
+			<form action="/add" method="POST">
+				<input type="submit" value="Add a New Lemur">
+			</form>
+		</main>
+	</body>
+</html>
