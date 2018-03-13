@@ -1,0 +1,32 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+#container{
+	padding: 20px;
+	font-family: 'Arial', sans-serif;
+}
+
+#chatBoard{
+	width: 600px;
+	height: 600px;
+	border: 2px solid black;
+}
+
+form{
+	margin-top: 10px;
+}
+
+form textarea{
+	width: 500px;
+}
+
+form input{
+	vertical-align: top;
+	width: 100px;
+	height: 32px;
+	border-radius: 5px;
+	background-color: #009ac7;
+	color: white;
+}
