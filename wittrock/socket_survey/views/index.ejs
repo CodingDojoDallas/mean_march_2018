@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>landng page</title>
+</head>
+<body>
+    <form id="registration">
+        <label>register</label>
+     
+    <div id="receive">
+        
+    </div>
+     <input type="text" name="name">
+        <select name="location">
+            <option value="mountain view">mountain view</option>
+            <option value="seattle">seattle</option>
+            <option value="tulsa">tulsa</option>
+            <option value="silicon valley">silicon valley</option>
+        </select>
+        <select name="language">
+            <option value="javascript">javascript</option>
+            <option value="python">python</option>
+            <option value="ruby">ruby</option>
+        </select>
+        <input type="text" name="comment">
+        <input type="submit" name="submit">
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    
+
+    <script>
+        $(document).ready(function() {
+            let socket = io.connect();
+                $('#registration').submit((e) => {
+            e.preventDefault();
+            let formData = $('#registration').serializeArray();
+            console.log(formData);
+            socket.emit('sending_survey_data', formData);
+        });
+        socket.on('received_data', (name)=> {
+            let rando = Math.floor(Math.random()*1000)
+            let datahtml=`<p>you emitted the following information to the server. ${name[0].value}, ${name[1].value}, ${name[2].value}, ${name[3].value}, and your lucky number is ${rando}</p>`
+            $('#receive').html(datahtml);
+            console.log(name)
+
+        })
+
+        })
+
+    </script>
+</body>
+</html>
