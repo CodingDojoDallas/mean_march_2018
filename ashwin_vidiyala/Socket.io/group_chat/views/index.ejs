@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-11">
+          <h1 class='text-primary'>Conversation Board</h1>
+          <div id='chats'></div>
+          <form>
+            <input id='message' class='form-control' type="text"
+                   name='message' placeholder='Enter Your Message Here'>
+            <button id='send' class='btn btn-primary' type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type='text/javascript'>
+      $(document).ready( () => {
+        let socket = io.connect();
+
+        let name = prompt('What is your name?');
+        socket.emit('user_logged_in', name);
+
+        socket.on('send_all_messages', (all_messages) => {
+          for(let i = 0; i < all_messages.length; i++) {
+            $('#chats').append(`<p>${all_messages[i]}</p>`)
+          }
+        })
+
+        $('form').submit((event) => {
+          event.preventDefault();
+          let message_content = $('form').serializeArray();
+          let message = `${name}: ${message_content[0].value}`;
+          socket.emit('message_sent', message);
+          $('#message').val('');
+        })
+
+        socket.on('send_message', (message) => {
+          $('#chats').append(`<p>${message}</p>`);
+        })
+      })
+    </script>
+  </body>
+</html>

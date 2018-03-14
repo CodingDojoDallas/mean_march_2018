@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      img {
+        width: 450px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <img src='baratheon.png' alt='House Algood' id='house_algood'>
+    <img src='lannister.jpg' alt='House Arryn of the Eyrie' id='house_arryn_of_the_eyrie'>
+    <img src='stark.jpg' alt='House Ashford of Ashford' id='house_ashford_of_ashford'>
+    <img src='targaryen.jpg' alt='House Ashwood' id='house_ashwood'>
+    <div>
+      <h2>House Details</h2>
+      <p id='name'></p>
+      <p id='words'></p>
+      <div id='titles'></div>
+    </div>
+    <script>
+      $(document).ready(function() {
+        $('#house_algood').on('click', function() {
+          var house = $(this).attr('alt');
+          $.get('https://www.anapioficeandfire.com/api/houses?houses=' + house, populateHouse);
+        });
+        $('#house_arryn_of_the_eyrie').on('click', function() {
+          var house = $(this).attr('alt');
+          $.get('https://www.anapioficeandfire.com/api/houses?name=' + house, populateHouse);
+        });
+        $('#house_ashford_of_ashford').on('click', function() {
+          var house = $(this).attr('alt');
+          $.get('https://www.anapioficeandfire.com/api/houses?name=' + house, populateHouse);
+        });
+        $('#house_ashwood').on('click', function() {
+          var house = $(this).attr('alt');
+          $.get('https://www.anapioficeandfire.com/api/houses?houses=' + house, populateHouse);
+        });
+
+        function populateHouse(house) {
+          $('#name').html(house[0].name);
+          $('#words').html(house[0].words);
+          for (let i = 0; i < house[0].titles.length; i++) {
+            let title = house[0].titles[i] ;
+            $('#titles').append("<p class='title'> "+ title +" </p>")
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

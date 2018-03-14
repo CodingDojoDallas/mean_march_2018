@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </head>
+  <body>
+    <h2 class='d-inline'>The button has been pushed
+                        <h2 id='clicks' class='d-inline'>0</h2>
+                        <h2 class='d-inline'>time(s)</h2>
+    </h2>
+
+    <p>Push the button to update the count!</p>
+    <button class='btn btn-primary'id='epic_button'>Push The Epic Button</button>
+    <button class='btn btn-danger' id='reset_button'>Reset</button>
+
+    <script type="text/javascript">
+      $(document).ready(() => {
+        let socket = io.connect();
+
+        $('#epic_button').click(() => {
+          socket.emit('epic_button_clicked');
+        })
+
+        socket.on('number_of_clicks', (clicks) => {
+          $('#clicks').html(clicks);
+        })
+
+        $('#reset_button').click(() => {
+          socket.emit('reset_button_clicked');
+        })
+
+        socket.on('reset_number_of_clicks', (clicks) => {
+          $('#clicks').html(clicks);
+        })
+
+      })
+    </script>
+  </body>
+</html>
