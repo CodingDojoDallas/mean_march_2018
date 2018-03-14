@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/chat.css">
+    <title> Broadcast Example </title>
+  </head>
+  <body>
+    <header id="user_name">
+      <h1> Conversation Board </h1>
+    </header>
+    
+    <main>
+      <div id="board">
+
+
+      </div>
+
+      <form action="" id="message">
+        <textarea name="message" rows="2"></textarea>
+        <input type="submit" value="Post">
+      </form>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/js/chat.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  </body>
+</html>

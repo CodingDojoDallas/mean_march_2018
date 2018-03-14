@@ -1,0 +1,9 @@
+1. Message is not posting to server per instructions on https://socket.io/get-started/chat/
+
+2. when clicking "Send" on chat box, it is saying cannot GET /chat .... which makes sense because initially "/chat" is the .post method action from the index page which renders the chat page... so not sure how to say that when I hit "Send", I want the page to refresh with live messages able to display on it... I tried making the form on the chat page have an action="" as they have on the socket.io page but that did not work either.... so yeah, just lost in the rabbit hole on how to make the same page render as a post and get method for 2 diff things...
+
+3. 'user_joined' emit not working from when the user submits their name to enter the chat...
+
+4. Whenever I tried to make the index file a .html instead of .ejs... it said that it was unable to find 'index'. This is because I put it in the Views folder as per Matt mentioned when I asked on Thursday or Friday -- but I am still confused... I swore that the beginning of the platform explained that only .ejs files with dynamic content go into the Views folder, and the .html now go into static.... that's how I was previously doing it for the first assignments with no issue.... clarity??  
+
+--> HALP! I feel like I'm right there and just missing either something simple or just have a small disconnect in understanding the concept...
