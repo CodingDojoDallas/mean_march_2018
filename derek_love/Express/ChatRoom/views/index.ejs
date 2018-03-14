@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>RatatatChat</title>
+		<link rel="stylesheet" type="text/css" href="chat_styles.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="chat.js"></script>
+	</head>
+	<body>
+		<div id="container">
+			<h1>RatatatChat</h1>
+			<h4>Never hestitate to put a chat up on this app!</h4>
+			<div id="chatBoard"></div>
+			<form id="add_message">
+				<textarea name="message" placeholder="enter message"></textarea>
+				<input type="submit" name="submit" value="Send">
+			</form>
+		</div>
+	</body>
+</html>

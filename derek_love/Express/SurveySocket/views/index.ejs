@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Survey Form</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			$(document).ready(() => {
+				let socket = io.connect();
+
+				// User submits survey form data to server
+				$('#survey_form').submit((e) => {
+					e.preventDefault();
+
+					// put form data into an array
+					let formData = $('#survey_form').serializeArray();
+
+					// send form data to server
+					socket.emit('sending_form_data', formData);
+				});
+
+				// Listening for form data from server
+				socket.on('responding_form_data', (data) => {
+
+					let html_str = 'You emitted the following information to the server: '
+
+					for(let i = 0; i < data.length; i++){
+						// if on final iteration, then remove the comma...being a little extra so I can make it look pretty
+						if(data[i] == data[data.length - 1]){
+							html_str += `${data[i].name}: ${data[i].value}`;
+						}
+						// add formData keys and values to html_str
+						else{
+							html_str += `${data[i].name}: ${data[i].value}, `;
+						}
+					}
+
+					$('#messages').html(html_str);
+				});
+
+				// Listening for random number from server
+				socket.on('responding_random_number', (data) => {
+					let html_num = `Your lucky number emitted by the server is ${data}`
+					$('#number').html(html_num);
+				})
+
+			});
+		</script>
+	</head>
+	<body>
+		<p id="messages"></p>
+		<p id="number"></p>
+		<form id="survey_form">
+			Your Name: <input type="text" name="name">
+			Dojo Location: <select name="location">
+				<option value="San Jose">San Jose</option>
+				<option value="Seattle">Seattle</option>
+				<option value="Los Angeles">Los Angeles</option>
+				<option value="Dallas">Dallas</option>
+			</select>
+			Favorite Language: <select name="fav">
+				<option value="Python">Python</option>
+				<option value="JavaScript">JavaScript</option>
+				<option value="Ruby">Ruby</option>
+			</select>
+			Comment (optional): <textarea name="comment"></textarea>
+			<button type="submit">Submit</button>
+		</form>
+	</body>
+</html>
