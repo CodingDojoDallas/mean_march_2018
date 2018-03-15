@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>where are some quotes</h1>
+	<% for (var z in data){ %>
+	<h3>"<%= data[z].quote %>"</h3>
+	<p>- <%= data[z].name %> at <%= data[z].createdAt %></p>
+	<% } %>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	
+	<button type="submit" name="pushme" id="pushme">counter button</button>
+	<button type="submit" name="reset" id="reset">reset</button>
+	<div id="receive"></div>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script>
+    	$(document).ready(function() {
+    		let socket = io.connect();
+    		
+    		socket.on('onconnection', (data) => {
+    			console.log('connected successfully to the socket.io server. my server side ID is'+data.id)
+    		$('#pushme').click((e) => {   			
+    			console.log('sent')
+    			socket.emit('sending', name)
+    		})
+    	})
+    		
+    		socket.on('recieved', (count) => {
+    			console.log('got it')
+    			let counter = `you clicked me ${count} times`
+    			$('#receive').html(counter)
+    			console.log(count)
+    			
+    			
+    		})
+    		$('#reset').click((e) => {
+    			console.log('resetting')
+    			socket.emit('resetting', reset)
+    		})
+    		socket.on('reseted', (count)=>{
+    			console.log('reset')
+    			$('#receive').html(count)
+    			
+    		})
+
+    	})
+    </script>
+</body>
+</html>
