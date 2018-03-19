@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="/css/sockets.css">
+	</head>
+	<body>
+		<div id="container">
+			<div id="content">
+				<div id="displayData">
+					
+				</div>
+				<form id="survey_form">
+					<label> Your Name: <span><input type="text" name="name"></span> </label>
+					<label> Dojo Location: 
+						<span><select name="location">
+							<option>Chicago</option>
+							<option>Dallas</option>
+							<option>Los Angeles</option>
+							<option>Seattle</option>
+							<option>Silicon Valley</option>
+							<option>Tulsa</option>
+							<option>Washington DC</option></select>
+						</select>
+					</label>	
+					<label> <span>Favorite Language:</span> 
+						<span><select name="language">
+							<option>HTML</option>
+							<option>CSS</option>
+							<option>JavaScript</option>
+							<option>Python</option>
+							<option>Ruby on Rails</option>
+							<option>MEAN</option>
+							<option>Swift</option></select>
+						</select>
+					</label>
+					<label> Comment (optional): </label>
+					<textarea name="comment"></textarea>
+					<input type="submit" value="Submit">
+				</form>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="/js/sockets.js"></script>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	</body>
+</html>

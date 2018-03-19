@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="/css/mongoose.css">
+		<title> QuotingDojo </title>
+	</head>
+	<body>
+		<header>
+			<h2> Here are some awesome quotes! </h2>	
+		</header>
+
+		<main> 
+			<div id="user_info">
+				<% for (let i in all_quotes) { %>
+				<p><span> Name:</span> <%= all_quotes[i].name %> </p>
+				<p><span> Quote:</span> <%= all_quotes[i].quote %> <%= all_quotes[i].createdAt %> </p>
+				<% } %>
+			</div>
+		</main>
+	</body>
+</html>

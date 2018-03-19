@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="/css/animals.css">
+		<title> Ringtailed Lemurs! </title>
+	</head>
+	<body>
+		<header>
+			<h2> Update <%= this_animal[0].name %> </h2>	
+		</header>
+		<% if(typeof(errors) != 'undefined') { %>
+			<% for(var i in errors) { %>
+			<h4> <%= errors[i].message %></h4>
+			<% } %>
+		<% } %>
+
+		<main> 
+			<form action="/animals/update/<%= this_animal[0]._id %>" method="POST">
+				<label for="name"> Name: </label>
+				<input type="text" name="name">
+				<label for="quote"> Age: </label>
+				<input type="text" name="age">
+				<label for="quote"> Hobbies: </label>
+				<input type="text" name="hobbies">
+				<input type="submit" value="Update Lemur">
+			</form>
+		</main>
+	</body>
+</html>

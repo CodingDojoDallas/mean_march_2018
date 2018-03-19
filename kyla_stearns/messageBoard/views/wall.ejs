@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/css/messageBoard.css">
+		<title>The Dojo Message Board</title>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1>The Dojo Message Board</h1>
+			</div>
+			<div id="content">
+				<h3>Post a message</h3>
+				<form action="/post1" method="POST">
+					<label> Name: </label><input type="text" name="name">
+					<label> Message: </label><input id="messagebox" type="text" name="text">
+					<input id="messagebutton" type="submit" value="Post message">
+				</form>
+				
+				<% if(typeof(errors) != 'undefined') { %>
+					<% for(var i in errors) { %>
+					<h4> <%= errors[i].message %></h4>
+					<% } %>
+				<% } %>
+
+				<div id="msglog">
+				<% if(typeof(all_msgs) != 'undefined') { %>
+					<% for (let i in all_msgs) { %>
+		  				<p class="names"><%= all_msgs[i].name %> <%= all_msgs[i].createdAt %>: </p>
+		     			<p id="message_words"> <%= all_msgs[i].text %> </p>
+		  				
+			  			<div id="commentlog">
+							<% for (let x = 0; x < all_msgs[i].comments.length; x++) { %>
+							<p class="names"> <%= all_msgs[i].comments[x].name %> <%= all_msgs[i].comments[x].createdAt %> </p>
+							<p id="comment_words"> <%= all_msgs[i].comments[x].text %> </p>
+							<% } %>	
+						</div>
+
+			  			<h4>Post a comment</h4>
+						<form class="comment_form" action="/post2/<%=all_msgs[i]._id%>" method="POST">
+							<label> Name: </label><input type="text" name="name">
+							<label> Comment: </label><input id="commentbox" type="text" name="text">
+							<input id="commentbutton" type="submit" value="Post comment">
+						</form>
+	  				<% } %>
+	  			<% } %>
+  				</div>
+			</div>
+		</div>
+	</body>
+</html>
