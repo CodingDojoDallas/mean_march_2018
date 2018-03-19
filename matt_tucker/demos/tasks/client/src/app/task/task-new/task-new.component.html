@@ -1,0 +1,44 @@
+<a [routerLink]="['/task']">All Tasks</a>
+
+
+<h4>New Task</h4>
+
+<form
+    (submit)="onSubmit($event)"
+    #form="ngForm"
+>
+
+    <label>Title</label>
+    <input
+        type="text"
+        name="title"
+        required
+        minlength="2"
+        maxlength="30"
+        [(ngModel)]="task.title"
+        #title="ngModel"
+    />
+    <small
+        class="errors"
+        [hidden]="title.valid || (title.untouched && !form.submitted)"
+    >Title is required (Minimum character length of 2).
+    </small>
+
+    <label>Description</label>
+    <input
+        type="text"
+        name="description"
+        required
+        minlength="2"
+        maxlength="70"
+        [(ngModel)]="task.description"
+        #description="ngModel"
+    />
+
+    <button
+        [disabled]="!form.valid"
+    >
+        Submit
+    </button>
+
+</form>

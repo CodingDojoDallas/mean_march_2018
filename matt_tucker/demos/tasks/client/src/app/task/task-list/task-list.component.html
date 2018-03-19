@@ -1,0 +1,6 @@
+<a [routerLink]="['/task', 'new']">Create Task</a>
+
+<div *ngFor="let task of tasks">
+    <p>Title: {{ task.title }}</p>
+    <p>Description: {{ task.description }}</p>
+</div>
