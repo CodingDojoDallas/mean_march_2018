@@ -7,6 +7,7 @@ export class HttpService{
 		// this.getTasks();  // invoke getTasks function to fetch from database upon creation
 	}
 	getAllTasks(){
+		console.log("Inside getAllTasks function");
 		// our http response is an Observable, store it in a variable
 		// let tempObservable = this._http.get('/tasks');
 		// subscribe to the Observable and provide the code we would like to do with our data from the response
@@ -20,12 +21,13 @@ export class HttpService{
 	}
 
 	editTask(id){
+		console.log("Inside editTask function with id", id);
 		return this._http.get('/tasks/edit/'+id); // return the Observable
 	}
 
-	updateTask(id, editTask){
+	updateTask(editTask){
 		console.log("Inside updateTask function with editTask", editTask);
-		return this._http.put('/tasks/update/'+id, editTask); // return the Observable
+		return this._http.put('/tasks/update/'+editTask.id, editTask); // return the Observable
 	}
 
 	deleteTask(id){

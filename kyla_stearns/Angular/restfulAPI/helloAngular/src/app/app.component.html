@@ -19,16 +19,17 @@
         <p> {{ element.description }} </p>
       </div>
       <div id="buttons">
-        <button (click)="editThisTask(element._id)"> Edit </button>
+        <button (click)="editThisTask(element)"> Edit </button>
         <button (click)="deleteThisTask(element._id)"> Delete </button>
       </div>
     </div>
   </div>
   <div id="edit">
-    <form (submit)="onSubmitEdit($event, editTask.id)" *ngIf="!hidden">
-    <!-- <p> {{ editTask | json }} </p> -->
-    <label> Title: </label> <input type="text" name="editTask.title" [(ngModel)]="editTask.title" />  
-    <label> Description: </label> <input type="text" name="editTask.description" [(ngModel)]="editTask.description"/> 
+    <form (submit)="onSubmitEdit($event)" *ngIf="!hidden">
+    <!-- <p> {{ thisTask | json }} </p> -->
+    <label> Title: </label> <input type="text" name="thisTask.title" [(ngModel)]="thisTask.title" 
+    [value]="thisTask.title" /> 
+    <label> Description: </label> <input type="text" name="thisTask.description" [(ngModel)]="thisTask.description" [value]="thisTask.description"/> 
     <input type="submit" name="onSubmitEdit" value="Update this task" />
     </form>
   </div>

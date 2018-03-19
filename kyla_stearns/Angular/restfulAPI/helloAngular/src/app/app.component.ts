@@ -11,14 +11,14 @@ export class AppComponent implements OnInit {
   title = 'app';
   tasks = [];
   newTask = {};
-  editTask = {};
+  thisTask = {};
   hidden = true;
 
   constructor(private _httpService: HttpService){}  // inject HttpService as dependency
 
   ngOnInit(){
     this.newTask = { title: '', description: '' };
-    this.editTask = { id: '' };
+    this.thisTask = { id: '', title: '', description: ''};
   	this.getAllTasks();
   }
 
@@ -37,37 +37,38 @@ export class AppComponent implements OnInit {
     console.log("Inside onSubmitNew function with new task", event);
     event.preventDefault();
     // code to send off the form data (this.newTask) to the service
-    // this.newTask['title'] = postData['newTaskTitle'];
-    // this.newTask['description'] = postData['newTaskDescription'];
-    // console.log(this.newTask);
+    // console.log("Updated newTask", this.newTask);
     let observable = this._httpService.createTask(this.newTask);
     observable.subscribe(data => {
-      // data = data.json();
-      console.log("got data from new_task submit", data);
+      console.log("Got data from new_task submit", data);
+      console.log("Successfully subscribed to createTask.");
     })
       // then reset this.newTask to new, clean object.
       this.newTask = { title: '', description: '' };
-
   }
 
-  editThisTask(id){
+  editThisTask(element){
     this.hidden = false;
-    this.editTask = {id: id};
-    let observable = this._httpService.editTask(id);
+    console.log("whole edit element object", element);
+    this.thisTask = {id: element._id, title: element.title, description: element.description};
+    console.log("New thisTask object", this.thisTask);
+    let observable = this._httpService.editTask(element._id);
     observable.subscribe(data => {
       data = data.json();
       console.log("Got this task to edit", data);
     });
   }
 
-  onSubmitEdit(event, thisTaskId){
+  onSubmitEdit(event){
     event.preventDefault();
-    // code to send off the form data (this.editTask) to the service
-    // console.log(thisTaskId);
-    let observable = this._httpService.updateTask(thisTaskId, this.editTask);
+    console.log("Inside onSubmitEdit function with thisTask", this.thisTask);
+    // code to send off the form data (this.thisTask) to the service
+    let observable = this._httpService.updateTask(this.thisTask);
     observable.subscribe(data => {
-      console.log("editTask subscribe to Observable", data.json());
+      console.log("thisTask subscribe to Observable", data.json());
     })
+    // then reset this.thisTask to new, clean object.
+    this.thisTask = { id: '', title: '', description: ''};
   }
 
   deleteThisTask(id){
