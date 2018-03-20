@@ -1,0 +1,28 @@
+#wrapper{
+	width: 100%;
+}
+
+#chatbox{
+	background: black;
+	color:white;
+	height: 400px;
+}
+#chatroom{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+form{
+	width:100%;
+}
+textarea{
+	width: 80%;
+}
+#send{
+	display: inline-block;
+	width: 10%;
+	vertical-align: top;
+}
+input{
+	height: 35px;
+}

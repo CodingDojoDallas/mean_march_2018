@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta charset="utf-8">
+<title>sockets</title>
+    <link rel='stylesheet' href='/stylesheet/style.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document). ready(function (){
+            // this triggers the connection event in our server!
+            var socket  = io.connect();
+            // we'll write all the socket stuff after the above line!
+             $( 'button').click(function (){
+                socket.emit( "button_clicked", {reason:  "because I want to learn about sockets!"});
+            });
+            socket.on( 'server_response', function (data){
+                console.log( 'The server says: '  + data.response);
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <button>I AM A BUTTON!</button>
+    <!-- web page goes here -->
+</body>
+</html>

@@ -1,0 +1,73 @@
+<script type="text/javascript">
+	
+class Deck{
+	constructor(){
+		this.deck = this.createDeck();
+	}
+	createDeck(){
+		let deck = [];
+		let suite = ["Clubs", "Spades", "Hearts", "Diamonds"];
+		for(let i = 0; i < suite.length; i++){
+			for(let j = 1; j <= 13; j++){
+				deck.push([j, suite[i]]);
+			}
+		}
+		return deck;
+	}
+	shuffle(){
+		let decklength = this.deck.length, t, i;
+		while (decklength) {
+			i = Math.floor(Math.random() * decklength--);
+			t = this.deck[decklength];
+			this.deck[decklength] = this.deck[i];
+			this.deck[i] = t;
+		}
+		return this.deck;
+	}
+	deal(){
+		return this.deck.pop();
+	}
+	reset(){
+		this.deck = this.createDeck();
+	}
+}
+
+class Player{
+	constructor(name){
+		this.name = name;
+		this.hand = [];
+	}
+	discard(){
+		if(this.hand.length > 0){
+			return this.hand.pop();
+		}
+		return "Your hand is empty";
+	}
+	draw(card){
+		this.hand.push(card);
+		return this;
+	}
+
+}
+
+const deck1 = new Deck();
+deck1.shuffle();
+console.log(deck1.deck);
+console.log(deck1.deal());
+console.log(deck1.deck);
+
+
+
+const player1 = new Player("Chuck Norris");
+console.log(player1.hand);
+player1.draw(deck1.deal());
+player1.draw(deck1.deal());
+player1.draw(deck1.deal());
+console.log(player1.discard());
+console.log(player1.hand);
+
+deck1.reset();
+console.log(deck1.deck);
+
+
+</script>
