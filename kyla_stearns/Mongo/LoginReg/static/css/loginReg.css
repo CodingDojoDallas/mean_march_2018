@@ -1,0 +1,63 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, sans-serif;
+}
+
+#container{
+	width: 970px;
+	padding: 25px;
+}
+
+h3{
+	color:red;
+}
+
+#register{
+	display: inline-block;
+	height: 450px;
+	width: 350px;
+	padding: 15px;
+	border: 2px solid black;
+	margin-top: 25px;
+}
+
+#register label{
+	display:block;
+	margin: 10px 0px 10px 0px;
+}
+
+input[type=text]{
+	align-content: right;
+	font-size: 14px;
+}
+
+input[type=password]{
+	align-content: right;
+	font-size: 14px;
+}
+
+#login{
+	display: inline-block;
+	vertical-align: top;
+	height: 450px;
+	width: 350px;
+	padding: 15px;
+	border: 2px solid black;
+	margin-top: 25px;
+}
+
+#login label{
+	display:block;
+	margin: 10px 0px 10px 0px;
+}
+
+input[type=submit]{
+	padding: 5px;
+	display: block;
+	margin-top: 10px;
+	background-color: lightblue;
+	border: 2px solid black;
+	box-shadow: 2px 2px;
+	font-size: 16px;
+}

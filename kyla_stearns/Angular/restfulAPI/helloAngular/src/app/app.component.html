@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="wrapper" style="text-align:center">
+  <h1> Restful Tasks API </h1>
+
+  <div id="new">
+    <h2> New Task </h2>
+    <form (submit)="onSubmitNew($event)">
+      <!-- <p> {{ newTask | json }} </p> -->
+      <label> Title: </label> <input type="text" name="newTask.title" [(ngModel)]="newTask.title" /> 
+      <label> Description: </label> <input type="text" name="newTask.description" [(ngModel)]="newTask.description"/>
+      <input type="submit" name="onSubmitNew" value="Create new task" />
+    </form>
+  </div>
+  <div id="content">
+    <h2> Task List: </h2>
+    <div id ="tasks" *ngFor= "let element of tasks">
+      <div id="info" > 
+        <h3>{{ element.title }} </h3>
+        <p> {{ element.description }} </p>
+      </div>
+      <div id="buttons">
+        <button (click)="editThisTask(element)"> Edit </button>
+        <button (click)="deleteThisTask(element._id)"> Delete </button>
+      </div>
+    </div>
+  </div>
+  <div id="edit">
+    <form (submit)="onSubmitEdit($event)" *ngIf="!hidden">
+    <!-- <p> {{ thisTask | json }} </p> -->
+    <label> Title: </label> <input type="text" name="thisTask.title" [(ngModel)]="thisTask.title" 
+    [value]="thisTask.title" /> 
+    <label> Description: </label> <input type="text" name="thisTask.description" [(ngModel)]="thisTask.description" [value]="thisTask.description"/> 
+    <input type="submit" name="onSubmitEdit" value="Update this task" />
+    </form>
+  </div>
+</div>
+
