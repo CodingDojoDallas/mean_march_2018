@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+
+		function starString(arg) {
+			var x = "*".repeat(arg);
+			return x;
+		}
+		let stars = starString(8);
+		console.log(stars);
+
+		function drawStars(arg) {
+			for(i = 0; i < arg.length; i++){
+				if(typeof arg[i] == "string"){
+					var first = arg[i][0];
+					var y = arg[i].length;
+					console.log(first.repeat(y));
+				}
+				else{
+					var x = "*".repeat(arg[i]);
+					console.log(x);
+				}
+			}
+		}
+		let s = [4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"];
+		drawStars(s);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

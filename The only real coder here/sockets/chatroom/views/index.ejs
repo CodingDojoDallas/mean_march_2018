@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Chatroom</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script src="chatroom.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>Conversation Board</h1>
+		<hr>
+		<div id="chatroom">
+			<div id="chatbox">	
+			</div>
+			<hr>
+			<form>
+				<textarea name="message"></textarea>
+				<div id="send">
+					<input type="submit" value="Send">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

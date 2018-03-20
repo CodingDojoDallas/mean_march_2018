@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Survey form</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script src="form.js"></script>
+</head>
+<body>
+	<div>
+		<div id="here">
+			
+		</div>
+		<form>
+			Your Name: <input type="text" name="name">
+			Dojo location: 
+			<select name="location">
+				<option>Mountain View</option>
+				<option>Dallas</option>
+			</select>
+			favorite language: 
+			<select name="language">
+				<option>JS</option>
+				<option>Python</option>
+				<option>HTML</option>
+			</select>
+			Comment (optional):
+			<input type="textarea" name="comment">
+			<input type="submit" name="submit">
+		</form>
+	</div>
+</body>
+</html>
