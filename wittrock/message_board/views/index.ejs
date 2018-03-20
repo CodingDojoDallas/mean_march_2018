@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>what up</h1>
+	<% if(typeof(errors) != 'undefined') { %>
+		<% for (var x in errors) { %>
+		<h3><%= errors[x].message %></h3>
+		<% } %>
+		<% } %>
+	<form action="/new" method="post">
+		<input type="text" name="name">
+		<input type="text" name="message">
+		<input type="submit">
+	</form>
+	<% if (typeof(data) != 'undefined'){%>
+	<% for (c in data) { %>
+		<h1>name: <%= data[c].name %></h1>
+		<h3>message: <%= data[c].message %></h3>
+			<% for (let l = 0; l < data[c].comments.length; l++) { %>
+				<p>comment: <%= data[c].comments[l].comment %></p>
+	 
+			<% } %>
+				<form action="/posts/<%=data[c]._id%>" method="post">
+					<input type="text" name="comment">
+					<input type="submit">
+				</form>
+
+	<% } %>
+	<% } %>
+
+		
+</body>
+</html>
