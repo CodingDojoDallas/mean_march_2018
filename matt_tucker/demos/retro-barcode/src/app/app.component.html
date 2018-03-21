@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h5>
+    {{title}}!
+  </h5> 
+
+  <div 
+    class="pixel"
+    *ngFor="let color of colors; let i = index"
+    [ngStyle]="{'background-color': color.random}"
+    (click)="outputColor(color.random)"
+    (mouseover)="hovering($event, i)"
+  ></div>
+
+  <button id="generate-button" (click)="randomColors()">Generate</button>
+
+  <button id="start-button" (click)="startInter()">Start</button>
+
+  <button id="clear-button" (click)="clearInter()">Stop</button>
+</div>
+
+

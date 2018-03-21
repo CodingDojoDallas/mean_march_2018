@@ -1,0 +1,115 @@
+# MEAN Deployment Instructions #
+
+-- Legend --
+
+    > typing in terminal
+    ** important note **
+    -- line explanations
+    {{ placeholder }}
+
+-- End Legend --
+
+-- Link GitHub Repo
+
+> git remote add origin {{GITHUB_URL}}
+> touch .gitignore
+> vim .gitignore
+ -- Paste these contents
+    .DS_Store
+    .idea
+    .vagrant
+    bootstrap.sh
+    VagrantFile
+    bower_components/
+    node_modules
+    package-lock.json
+
+> git add .
+> git commit -m "initial commit"
+> git push origin master
+
+** Might need to remove previous track **
+> git rm -r --cache .
+
+
+-- When ssh'ing into server. Use connect is AWS.
+> chmod 400 {{ key_name }}.pem
+> ssh -i "{{ key_name }}.pem" ubuntu@{{ AWS PUBLIC ADDRESS }}
+
+** You should be in the Ubuntu Terminal for the rest of the commands **
+
+> sudo apt-get update
+> sudo apt-get install -y build-essential openssl libssl-dev pkg-config
+
+> sudo apt-get install -y nodejs nodejs-legacy
+> sudo apt-get install npm -y
+> sudo npm cache clean -f
+
+> sudo npm install -g n
+> sudo n stable
+
+> sudo apt-get install nginx -y
+> sudo apt-get install git
+
+> cd /var/www
+> sudo chown -R ubuntu:ubuntu /var/www
+
+- Pull in project from GITHUB
+> git clone {{ GITHUB_URL }}
+> cd {{ repo_name }}
+> npm install
+
+-- Set up Angular
+> cd {{ angular_folder }}
+> sudo chown -R ubuntu /usr/local/lib/node_modules/
+> sudo npm install -g @angular/cli
+** You may get an error on the previous command, that is okay **
+
+> ng build
+
+-- Set up NGINX
+> cd /etc/nginx/sites-available
+> sudo vim {{repo_name}}
+
+-- Insert the following into that file
+server {
+    listen 80;
+    location / {
+        proxy_pass http://{{PRIVATE-IP}}:{{NODE-PROJECT-PORT}};
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+-- Remove default nginx configuration
+> sudo rm default
+
+-- Create Symbolic Link
+> sudo ln -s /etc/nginx/sites-available/task_api /etc/nginx/sites-enabled/task_api
+
+-- Remove default nginx config from enabled
+> cd /etc/nginx/sites-enabled/
+> sudo rm default
+
+-- Install PM2
+> sudo npm install pm2 -g
+
+-- Install Mongo
+> sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+
+> echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+
+> sudo apt-get update
+
+> sudo apt-get install -y mongodb
+
+> sudo mkdir /data
+> sudo mkdir /data/db
+> sudo chown -R ubuntu /data/db
+
+> cd /var/www/{{ repo_name }}
+> sudo pm2 start mongod
+> sudo pm2 start server.js

@@ -22,7 +22,7 @@ module.exports = {
         });
     },
     show: (req, res) => {
-        Task.find({_id: req.params.id}, (err, task) => {
+        Task.findOne({_id: req.params.id}, (err, task) => {
             if (err) {
                 return res.status(401).json(err);
             }

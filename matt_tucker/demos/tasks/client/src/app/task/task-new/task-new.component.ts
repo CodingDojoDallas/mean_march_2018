@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TaskService } from '../task.service';
 import { Task } from "../task"
 
@@ -11,7 +12,10 @@ export class TaskNewComponent implements OnInit {
 
   task: Task;
 
-  constructor(private _taskService: TaskService) { 
+  constructor(
+    private _taskService: TaskService,
+    private _router: Router
+  ) { 
   }
 
   ngOnInit() {
@@ -27,6 +31,7 @@ export class TaskNewComponent implements OnInit {
 
         console.log(task);
 
+        this._router.navigate(['/task']);
     });
   }
 

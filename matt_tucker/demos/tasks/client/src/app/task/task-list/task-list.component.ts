@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TaskService } from '../task.service';
 import { Task } from '../task';
 
@@ -10,7 +11,10 @@ import { Task } from '../task';
 export class TaskListComponent implements OnInit {
   tasks: Task[];
 
-  constructor(private _taskService: TaskService) { }
+  constructor(
+    private _taskService: TaskService,
+    private _router: Router
+  ) { }
 
   ngOnInit() {
     let observable = this._taskService.retrieveTasks();
@@ -19,6 +23,14 @@ export class TaskListComponent implements OnInit {
 
         this.tasks = tasks;
     });
+  }
+
+  showTask(index) {
+    const task = this.tasks[index];
+
+    this._taskService.storeTask(task);
+
+    //this._router.navigate(['/task', task._id])
   }
 
 }
