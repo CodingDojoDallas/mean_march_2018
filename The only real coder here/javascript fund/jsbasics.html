@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		function pushpop(){
+			var x = [];
+			x.push("coding","dojo","rocks");
+			x.pop();
+			console.log(x);
+		}
+		pushpop();
+
+		function constpush(){
+			const y=[];
+			y.push(88);
+			console.log(y);
+		}
+		constpush();
+
+		function printcondit(){
+			var z = [9,10,6,5,-1,20,13,2];
+			z.pop();
+			console.log(z);
+		}
+		printcondit();
+
+		function names(){
+			var name = ["kadie","joe","fritz","pierre","alphonso"];
+			for(let i = 0; i < name.length; i++){
+				if(name[i].length < 6){
+					console.log(name[i]);
+				}
+			}
+		}
+		names();
+
+		function yell(){
+			var x = "string";
+			var y = x.toUpperCase();
+			console.log(y);
+		}
+		yell();
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

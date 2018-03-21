@@ -29,7 +29,9 @@ Angular Registration - https://scotch.io/tutorials/how-to-implement-a-custom-val
 OOP - https://youtu.be/2N20n3Obr5o <br>
 Express - https://youtu.be/fKMxM3eAN00 <br>
 Sockets - https://youtu.be/T_BaIyu27C8 <br>
+Deployment - https://youtu.be/exy8MeRfCq8 <br>
 
 ## Demos:
 Dojo Query / First Node Server - https://youtu.be/NgtOp7pXtck <br>
 Task API - https://youtu.be/V4lixm2ZcAY <br>
+Task API (Route Params) - https://youtu.be/P5iCTLKgCcY <br>

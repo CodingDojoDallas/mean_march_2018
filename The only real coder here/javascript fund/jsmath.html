@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		function zero_negativity(x){
+			if(x.constructor === Array){
+				for(let i = 0; i < x.length; i++){
+					if(x[i] < 0){
+						console.log("False");
+						return;
+					}
+				}
+				console.log("True");
+			}
+		}
+		zero_negativity([1,2,3,4,3,2,2]);
+
+		function is_even(x) {
+			var count = 0;
+			if(x % 2 == 0){
+				console.log("True");
+			}
+			else{
+				console.log("False");
+			}
+		}
+		is_even(2);
+
+		function how_many_even(x) {
+			var count = 0;
+			if(x.constructor === Array){
+				for(let i = 0; i < x.length; i++){
+					if(x[i] % 2 == 0){
+						count++;
+					}
+					else{
+						continue;
+					}
+				}
+				console.log(count)
+			}
+		}
+		how_many_even([1,2,5,-1,-2,4])
+
+		function create_dummy_array(n) {
+			var array = [];
+			for(var i = 1; i <= n; i++){
+				let x = Math.floor(Math.random() * 9) + 1;
+				array.push(x);	
+			}
+			console.log(array)
+		}
+		create_dummy_array(10);
+
+		function random_choice(n) {
+			var x = n[Math.floor(Math.random()*n.length)];
+			console.log(x);
+		}
+		random_choice([1,2,3,4,5,6,7,8]);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

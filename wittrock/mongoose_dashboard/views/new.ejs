@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<% if(typeof(errors) != 'undefined') { %>
+		<% for (var x in errors) { %>
+		<h3><%= errors[x].message %></h3>
+		<% } %>
+		<% } %>
+
+	 
+	
+	<form action="/new" method="post">
+		<input type="String" name="name">
+		<input type="Number" name="age">
+		
+		<input type="submit" name="register">		
+	</form>
+</body>
+</html>

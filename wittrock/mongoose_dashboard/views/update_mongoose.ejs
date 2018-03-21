@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>edit <%= animal.name %></h1>
+	
+	<form action="/edit/<%= animal._id %>" method="POST">
+		<input type="String" name="name">
+		<input type="Number" name="age">
+		<input type="submit">
+	</form>
+</body>
+</html>

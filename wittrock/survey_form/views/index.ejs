@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+         $(document). ready(function (){
+            // this triggers the connection event in our server!
+            var socket  = io.connect();
+            // we'll write all the socket stuff after the above line!
+        })
+    </script>
+</head>
+<body>
+	<form action="/survey" method="post">
+		<input type="text" name="name">
+		<select name="location">
+			<option value="mountain view">mountain view</option>
+			<option value="seattle">seattle</option>
+			<option value="tulsa">tulsa</option>
+			<option value="silicon valley">silicon valley</option>
+		</select>
+		<select name="language">
+			<option value="javascript">javascript</option>
+			<option value="python">python</option>
+			<option value="ruby">ruby</option>
+		</select>
+		<input type="text" name="comment">		
+		<input type="submit" name="submit">
+	</form>
+</body>
+</html>
