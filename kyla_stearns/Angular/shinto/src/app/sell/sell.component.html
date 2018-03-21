@@ -1,0 +1,13 @@
+<h1> Sell ShintoCoins </h1>
+<p> Current ShintoCoin Value: ${{ currentValue }} </p>
+<p> Number of ShintoCoins Owned: {{ owned }} </p>
+<form (submit)="onSell($event)">
+	<!-- <p> {{ coinSell | json }} </p> -->
+	<input 
+		type="text" 
+		placeholder="Number" 
+		name="coinSell.sold"
+		[(ngModel)]="coinSell.sold" 
+	/>
+	<input type="submit" value="Sell"/>
+</form>
