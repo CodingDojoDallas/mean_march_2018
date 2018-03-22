@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-md-auto">
+          <h1 class='text-primary'>The Dojo Message Board</h1>
+          <hr>
+          <div class="text-danger">
+            <% if (typeof(errors) != 'undefined') { %>
+              <% for (let error in errors) { %>
+                <h4><%= errors[error].message %></h4>
+              <% } %>
+            <% } %>
+          </div>
+
+          <form action='/messages' method='post'>
+            <label>Name</label>
+            <input type="text" name='name' plceholder='Name'><br />
+
+            <label>Message</label>
+            <textarea name="content" rows="5" cols="80" placeholder='Enter Message'></textarea>
+
+            <button type="submit" class='btn btn-primary'>Post Message</button>
+          </form>
+
+          <% for (let i = 0; i < messages.length; i++) { %>
+            <h3><span class='text-primary'>Name: </span><%= messages[i].name %></h3>
+            <h3><span class='text-primary'>Message: </span><%= messages[i].content %></h3>
+            <form action='/messages/<%= messages[i]._id %>' method='post'>
+              <label>Name</label>
+              <input type="text" name='name' plceholder='Name'><br />
+
+              <label>Comment</label>
+              <textarea name="content" rows="3" cols="80" placeholder='Enter Comment'></textarea>
+
+              <button type="submit" class='btn btn-secondary'>Post Comment</button>
+            </form>
+            <% for (let j = 0; j < comments.length; j++) { %>
+              <% if (comments[j]._message.toString() == messages[i]._id.toString()) { %>
+                <p><span class='text-primary'>Name: </span><%= comments[j].name %></p>
+                <p><span class='text-primary'>Comment: </span><%= comments[j].content %></p>
+              <% } %>
+            <% } %>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

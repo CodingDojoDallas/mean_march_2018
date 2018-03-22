@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-md-auto text-center">
+          <% if (typeof(errors) != 'undefined') { %>
+            <% for (var error in errors) { %>
+            <p class='text-danger'><%= errors[error].message %></p>
+            <% } %>
+          <% } %>
+          <h2 class='text-primary'>Registration</h2>
+          <form action='/register' method='post'>
+            <label class='col-form-label'>First Name</label>
+            <input class='form-control' type="text" name="first_name" placeholder='First Name'>
+
+            <label class='col-form-label'>Last Name</label>
+            <input class='form-control' type="text" name="last_name" placeholder='Last Name'>
+
+            <label class='col-form-label'>Email</label>
+            <input class='form-control' type="email" name="email" placeholder='Email'>
+
+            <label class='col-form-label'>Birthday</label>
+            <input class='form-control' type="date" name="birthday">
+
+            <label class='col-form-label'>Password</label>
+            <input class='form-control' type="password" name="password" placeholder='Password'>
+
+            <label class='col-form-label'>Password Confirm</label>
+            <input class='form-control' type="password" name="password_confirmation" placeholder='Password Confirm'><br />
+
+            <button class='btn btn-primary' type="submit">Register</button>
+          </form><br />
+
+          <h2 class='text-primary'>Login</h2>
+          <form action='/login' method='post'>
+            <label class='col-form-label'>Email</label>
+            <input class='form-control' type="email" name="email" placeholder='Email'>
+
+            <label class='col-form-label'>Password</label>
+            <input class='form-control' type="password" name="password" placeholder='Password'><br />
+
+            <button class='btn btn-primary' type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

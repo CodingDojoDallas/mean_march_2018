@@ -1,0 +1,20 @@
+<h1>Total Gold: {{gold}}</h1>
+
+<h3>Farm</h3>
+<p>Earn 2 - 5 gold!</p>
+<button (click) = 'farm()'>Farm!</button>
+
+<h3>Cave</h3>
+<p>Earn 5 - 10 gold!</p>
+<button (click) = 'cave()'>Cave!</button>
+
+<h3>House</h3>
+<p>Earn 7 - 15 gold!</p>
+<button (click) = 'house()'>House!</button>
+
+<h3>Casino</h3>
+<p>Earn or Lose upto 100 gold!</p>
+<button (click) = 'casino()'>Casino!</button>
+
+<h2>Adventure Log</h2>
+<p *ngFor="let log of adventure_log">{{log}}</p>

@@ -1,0 +1,37 @@
+<h1>Restful Tasks API</h1>
+
+<button id='getTasks' (click) = 'getTasksFromService()'>Get All Tasks</button>
+
+<div>
+  <h2>All the tasks:</h2>
+  <div *ngFor='let task of tasks'>
+    <p>{{task.title}} - {{task.description}}</p>
+    <p>
+      <button (click)='showEditForm($event, task.title, task.description, task._id)'>Edit Task</button>
+      <button (click)='deleteTask($event, task.title, task.description, task._id)'>Delete Task</button>
+    </p>
+  </div>
+
+  <div *ngIf='show_edit_form == true' >
+    <form (submit)='editTask($event)'>
+      <input type="text" name="current_task.title" [(ngModel)] = 'current_task.title'>
+      <input type="text" name="current_task.description" [(ngModel)]='current_task.description'>
+      <input type="hidden" name="current_task._id" [(ngModel)]='current_task._id'>
+      <input type="submit" value="Edit Task">
+    </form>
+  </div>
+
+  <h2>The third task is:</h2>
+  <p>{{tasks[2].title}} - {{tasks[2].description}}</p>
+</div>
+
+<h2>Create a New Task</h2>
+<div>
+  <form (submit)='addTask($event)'>
+    <label>Title</label>
+    <input type="text" name="newTask.title" [(ngModel)] = 'newTask.title'>
+    <label>Description</label>
+    <input type="text" name="newTask.description" [(ngModel)]='newTask.description'>
+    <input type="submit"value="Create Task">
+  </form>
+</div>

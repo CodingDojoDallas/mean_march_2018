@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-md-auto text-center">
+          <h1 class='text-primary'>All Quotes Live Here!</h1>
+          <% for (let i = 0; i < quotes.length; i++) { %>
+          <p>Name: <%= quotes[i].name %></p>
+          <p class='font-weight-bold'>Quote: <%= quotes[i].quote %></p>
+          <hr>
+          <% } %>
+          <a href="/"><button class='btn btn-primary'>Go Back To Home</button></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

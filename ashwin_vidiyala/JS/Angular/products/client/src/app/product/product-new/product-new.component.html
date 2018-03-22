@@ -1,0 +1,34 @@
+<h4 class='text-primary'>Create A New Product</h4>
+
+<form (submit)='createProduct($event)'>
+  <label>Title</label>
+  <input
+    type = 'text'
+    name = 'title'
+    [(ngModel)] = 'product.title'
+    required
+    minlength = '4'
+  ><br />
+  <p *ngIf="error.title" class="text-danger">{{ error.title.message }}</p>
+
+  <label>Price</label>
+  <input
+    type = 'number'
+    name = 'price'
+    [(ngModel)] = 'product.price'
+    required
+  ><br />
+  <p *ngIf="error.price" class="text-danger">{{ error.price.message }}</p>
+
+  <label>Image URL</label>
+  <input
+    type = 'text'
+    name = 'image'
+    [(ngModel)] = 'product.image'
+  ><br>
+  <p *ngIf="error.image" class="text-danger">{{ error.image.message }}</p>
+
+  <button type='submit' class='btn btn-success'>Create Product</button>
+</form>
+
+<button class='btn btn-success' [routerLink]="['/list']">Cancel</button>

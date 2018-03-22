@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+
+      function starString(n) {
+        return '*'.repeat(n);
+      }
+      console.log(starString(8));
+
+      function drawStars(array) {
+        stars = '';
+        for (let i = 0; i < array.length; i++) {
+          if (typeof array[i] === 'number') {
+            stars += '*'.repeat(array[i]) + "\n";
+          } else if (typeof array[i] === 'string') {
+            stars += array[i][0].toLowerCase().repeat(array[i].length) + "\n"
+          }
+        }
+        return stars;
+      }
+      console.log(drawStars([1,2,'Johnny',3,4,'Tim',5, 15, 'Thiruvananthapuram']));
+
+    </script>
+  </body>
+</html>

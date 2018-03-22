@@ -1,0 +1,20 @@
+<button class='btn btn-warning' [routerLink]="['/quote', 'new', author_id]">Add Quote</button>
+
+<h4 class='text-primary'>Quotes by {{author_name}}</h4>
+
+<table class='table table-striped table-bordered table-hover'>
+  <tr>
+    <th>Quote</th>
+    <th>Votes</th>
+    <th>Actions available</th>
+  </tr>
+  <tr *ngFor='let quote of quotes'>
+    <td>{{quote.content}}</td>
+    <td>{{quote.votes}}</td>
+    <td>
+      <button class='btn btn-success' (click)='voteUpQuote(quote._id)'>Vote Up</button>
+      <button class='btn btn-info' (click)='voteDownQuote(quote._id)'>Vote Down</button>
+      <button class='btn btn-danger' (click)='deleteQuote(quote._id)'>Delete</button>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,15 @@
+<h3 class='text-primary'>Products List</h3>
+
+<div class='panel panel-primary' *ngFor='let product of products'>
+  <div class="panel-heading">
+    <h4>{{product.title}}</h4>
+  </div>
+  <div class="panel-body">
+    <img [src]='product.image' />
+    <h4>Price: ${{product.price}}</h4>
+    <p>
+      <button class='btn btn-success' [routerLink]="['/edit', product._id]">Edit</button>
+      <button class='btn btn-success' (click)='deleteProduct(product._id)'>Delete</button>
+    </p>
+  </div>
+</div>

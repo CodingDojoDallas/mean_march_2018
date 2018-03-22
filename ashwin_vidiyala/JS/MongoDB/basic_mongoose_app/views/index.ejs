@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <div class="contaienr">
+      <div class="row">
+        <div class="col-md-8 mx-md-auto text-center">
+          <h2 class='text-primary'>All Users</h2>
+          <% for (let i = 0; i < users.length; i++) { %>
+            <p>Name: <%= users[i].name %>, Age: <%= users[i].age %></p>
+          <% } %>
+          <h2 class='text-primary'>User Registration Form</h2>
+          <form action='/users' method='post'>
+            <label>Name</label>
+            <input type="text" name="name"><br />
+
+            <label>Age</label>
+            <input type="number" name="age"><br />
+
+            <input class='btn btn-primary' type="submit">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready( () => {
+        let socket = io.connect();
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<h4 class='text-primary'>Add A New Quote by {{author_name}}</h4>
+
+<form (submit)='addQuote($event)'>
+  <label>Quote</label>
+  <input
+  type='text'
+  name='quote'
+  [(ngModel)]='quote.content'
+  required
+  minlength='3'
+  >
+  <button class='btn btn-success' type='submit'>Create Quote</button>
+  <button class='btn btn-warning' [routerLink]="['/quote', author_id]">Cancel</button>
+</form>
+
+<p class='text-danger'>{{error}}</p>

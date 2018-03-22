@@ -1,0 +1,16 @@
+<h4 class='text-primary'>Edit Author Info</h4>
+
+<form (submit)='editAuthor($event)'>
+  <label>Author Name</label>
+  <input
+  type="text"
+  name="name"
+  [(ngModel)]='author.name'
+  required
+  minlength='2'
+  ><br />
+  <button class='btn btn-success' type='submit'>Submit</button>
+  <button class='btn btn-success' [routerLink]="['/show']">Cancel</button>
+</form>
+
+<p class='text-danger'>{{error}}</p>

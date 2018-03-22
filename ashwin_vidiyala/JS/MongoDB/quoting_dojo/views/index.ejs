@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <div class='container'>
+      <div class="row">
+        <div class="col-md-8 mx-md-auto text-center">
+          <h1 class='text-primary'>Welcome to Quoting Dojo</h1>
+          <form action='/quotes' method='post'>
+            <label>Your Name:</label>
+            <input type="text" name="name"><br />
+
+            <label>Your Quote:</label>
+            <textarea name="quote" rows="8" cols="80"></textarea>
+
+            <input class='btn btn-primary' type="submit" value="Add My Quote">
+          </form><br />
+          <a href='/quotes'><button class='btn btn-primary'>Skip To Quotes!</button></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
