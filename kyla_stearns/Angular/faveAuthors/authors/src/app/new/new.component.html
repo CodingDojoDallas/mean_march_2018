@@ -1,0 +1,19 @@
+<a [routerLink]="['/home']"> Home </a>
+
+<div id="errors">	
+	<h3> {{ response }} </h3>	
+ </div>
+
+<h4> Add a new author: </h4>
+
+<form (submit)="onSubmitNew($event)">
+  <!-- <p> {{ newTask | json }} </p> -->
+  <label> Name: </label> 
+  <input 
+  	type="text" 
+  	name="newAuthor.name" 
+  	[(ngModel)]="newAuthor.name" /> 
+
+  <button [routerLink]="['/home']"> Cancel </button>
+  <input type="submit" name="onSubmitNew" value="Submit" />
+</form>
