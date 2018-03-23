@@ -64,6 +64,7 @@
 > sudo chown -R ubuntu /usr/local/lib/node_modules/
 > sudo npm install -g @angular/cli
 ** You may get an error on the previous command, that is okay **
+> npm install
 
 > ng build
 
@@ -88,7 +89,7 @@ server {
 > sudo rm default
 
 -- Create Symbolic Link
-> sudo ln -s /etc/nginx/sites-available/task_api /etc/nginx/sites-enabled/task_api
+> sudo ln -s /etc/nginx/sites-available/{{repo_name}} /etc/nginx/sites-enabled/{{repo_name}}
 
 -- Remove default nginx config from enabled
 > cd /etc/nginx/sites-enabled/
