@@ -1,0 +1,25 @@
+h1{
+	margin-top: 10px;
+}
+
+p{
+	font-size: 18px;
+	margin: 15px 0px 15px 0px;
+}
+
+input[type=text]{
+	padding: 5px;
+	font-size: 14px;
+	width: 150px;
+}
+
+input[type=submit]{
+	width: 100px;
+	font-size: 14px;
+	padding: 5px;
+	text-align: center;
+	background-color: lightgrey;
+	vertical-align: top;
+	margin: 0px 15px 0px 15px;
+	border-radius: 5px;
+}
