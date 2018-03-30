@@ -1,0 +1,32 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, sans-serif;
+}
+
+body{
+	width: 970px;
+	margin: auto;
+}
+
+header{
+	width: 100%;
+	padding: 10px;
+}
+
+header button{
+	width: 150px;
+	font-size: 14px;
+	padding: 5px;
+	text-align: center;
+	background-color: lightgrey;
+	vertical-align: top;
+	margin: 0px 15px 0px 15px;
+	border-radius: 5px;
+}
+
+img{
+	height: 100px;
+	width: 100px;
+	margin: -10px 10px 0px 15px;
+}

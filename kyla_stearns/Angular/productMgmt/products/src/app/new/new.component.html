@@ -1,0 +1,36 @@
+<div id="errors">	
+	<h3> {{ response }} </h3>	
+ </div>
+
+<h4> Add a new product: </h4>
+
+<form (submit)="onSubmitNew($event)">
+  <!-- <p> {{ newProduct | json }} </p> -->
+  <label> Title </label> 
+  <input 
+  	type="text" 
+  	name="newProduct.title"
+    placeholder="Product Name"
+  	[(ngModel)]="newProduct.title" 
+  	[value]="newProduct.title" />
+
+  <label> Price </label> 
+  <input 
+  	type="text" 
+  	name="newProduct.price"
+    placeholder="Price Amount" 
+  	[(ngModel)]="newProduct.price" 
+  	[value]="newProduct.price" />
+
+  <label> Image URL </label> 
+  <input 
+  	type="text" 
+  	name="newProduct.imgLink"
+    placeholder="URL Address" 
+  	[(ngModel)]="newProduct.imgLink" 
+  	[value]="newProduct.imgLink" />
+
+  <input type="submit" name="onSubmitNew" value="Create" />
+  <button [routerLink]="['']"> Cancel </button>
+
+</form>

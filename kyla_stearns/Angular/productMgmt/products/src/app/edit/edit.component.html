@@ -1,0 +1,32 @@
+<div id="errors">	
+	<h3> {{ response }} </h3>	
+ </div>
+
+<form (submit)="onSubmitEdit($event)">
+  <!-- <p> {{ newTask | json }} </p> -->
+  <label> Title </label> 
+  <input 
+  	type="text" 
+  	name="thisProduct.title" 
+  	[(ngModel)]="thisProduct.title" 
+  	[value]="thisProduct.title" />
+
+  <label> Price </label> 
+  <input 
+  	type="text" 
+  	name="thisProduct.price" 
+  	[(ngModel)]="thisProduct.price" 
+  	[value]="thisProduct.price" />
+
+  <label> Image URL </label> 
+  <input 
+  	type="text" 
+  	name="thisProduct.imgLink" 
+  	[(ngModel)]="thisProduct.imgLink" 
+  	[value]="thisProduct.imgLink" />
+
+
+  <input type="submit" name="onSubmitEdit" value="Update" />
+  <button (click)="deleteProduct(thisProduct.id)"> Delete </button>
+
+</form>

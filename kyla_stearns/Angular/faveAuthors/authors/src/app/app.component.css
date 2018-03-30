@@ -1,0 +1,15 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, sans-serif;
+}
+
+#wrapper{
+	width: 970px;
+	margin: auto;
+}
+
+h1{
+	margin: 15px 0px 15px 0px;
+}
+

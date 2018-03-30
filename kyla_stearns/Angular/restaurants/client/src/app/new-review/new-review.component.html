@@ -1,0 +1,31 @@
+<div id="errors" >	
+	<h3 *ngIf="response.name"> {{ response.name.message }} </h3>
+  <h3 *ngIf="response.content"> {{ response.content.message }} </h3>  	
+ </div>
+
+<h4> Write a review for {{ currentRestaurant }}: </h4>
+
+<form (submit)="onSubmitNew($event)">
+  <!-- <p> {{ newReview | json }} </p> -->
+
+  <label> Your Name: </label> 
+  <input 
+  	type="text" 
+  	name="newReview.name"
+  	[(ngModel)]="newReview.name" />
+  <label> Stars: </label> 
+  <input 
+	  	type="number"
+      min= 1
+      max= 5 
+	  	name="newReview.rank"
+	  	[(ngModel)]="newReview.rank" />
+  <label> Your review: </label> 
+  <input 
+  	type="text" 
+  	name="newReview.content"
+  	[(ngModel)]="newReview.content" /> 
+
+  <button [routerLink]="['/reviews', newReview._restaurant]"> Cancel </button>
+  <input type="submit" name="onSubmitNew" value="Submit" />
+</form>

@@ -1,0 +1,48 @@
+#errors{
+	color: red;
+	padding: 5px;
+	margin: 10px 0px 10px 0px;
+}
+
+h4{
+	margin-top: 10px;
+}
+
+form{
+	margin-left: 25px;
+}
+
+label{
+	display: block;
+	margin: 10px 0px 10px 0px;
+}
+
+input[type=text]{
+	display: block;
+	padding: 5px;
+	font-size: 14px;
+	margin-left: 15px;
+	width: 225px;
+}
+
+input[type=submit]{
+	width: 100px;
+	font-size: 14px;
+	padding: 5px;
+	text-align: center;
+	background-color: lightgrey;
+	vertical-align: top;
+	margin: 15px 15px 0px 15px;
+	border-radius: 5px;
+}
+
+button{
+	width: 100px;
+	font-size: 14px;
+	padding: 5px;
+	text-align: center;
+	background-color: lightgrey;
+	vertical-align: top;
+	margin: 15px 15px 0px 15px;
+	border-radius: 5px;
+}

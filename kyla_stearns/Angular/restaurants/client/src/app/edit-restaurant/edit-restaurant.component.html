@@ -1,0 +1,24 @@
+<div id="errors" >  
+  <h3 *ngIf="response.name"> {{ response.name.message }} </h3>
+  <h3 *ngIf="response.content"> {{ response.cuisine.message }} </h3>    
+ </div>
+
+<h4> Edit this restaurant: </h4>
+
+<form (submit)="onSubmitEdit($event)">
+  <!-- <p> {{ thisRestaurant | json }} </p> -->
+
+  <label> Restaurant Name: </label> 
+  <input 
+    type="text" 
+    name="thisRestaurant.name" 
+    [(ngModel)]="thisRestaurant.name" />
+  <label> Cuisine: </label> 
+  <input 
+    type="text" 
+    name="thisRestaurant.cuisine" 
+    [(ngModel)]="thisRestaurant.cuisine" /> 
+
+  <button [routerLink]="['/']"> Cancel </button>
+  <input type="submit" name="onSubmitNew" value="Edit" />
+</form>

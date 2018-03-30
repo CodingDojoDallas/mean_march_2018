@@ -1,0 +1,14 @@
+<h1> Mine ShintoCoins </h1>
+<p> Here you can mine ShintoCoins by being the first the solve the algorithm:</p>
+<h4> Question: {{ QA[element].question }}</h4>
+<form (submit)="getAnswer($event)">
+	<!-- <p> {{ attempt | json }} </p> -->
+	<input 
+		type="text" 
+		placeholder="My answer" 
+		name="attempt"
+		[(ngModel)] = "attempt" 
+		 
+	/>
+	<input type="submit" value="Mine"/>
+</form>

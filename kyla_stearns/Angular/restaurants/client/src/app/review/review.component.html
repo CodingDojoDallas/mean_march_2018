@@ -1,0 +1,24 @@
+<div id="errors">	
+	<h3> {{ response }} </h3>	
+ </div>
+
+<h4> Reviews for {{ currentRestaurant }} </h4>
+<button [routerLink]="['/write', restaurantID]"> Add a new review </button>
+<button [routerLink]="['/']"> Home </button>
+
+<table>
+	<thead> 
+		<th> Customer </th>
+		<th> Stars </th>
+		<th> Description </th>
+		<th> Actions </th>
+	</thead>
+	<tbody>  
+		<tr *ngFor="let element of reviews">
+			<td> {{ element.name }} </td>
+			<td> {{ element.rank }} </td>
+			<td> {{ element.content }} </td>
+			<td>  </td>
+		</tr>
+	</tbody>
+</table>
